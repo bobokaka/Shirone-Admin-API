@@ -111,8 +111,10 @@ Shirone-Admin-API/
 
 ### 3. 静态资源管理
 
-- 图片等资源放在 `docs/.vitepress/public/assets/` 目录下
-- 在 Markdown 中使用绝对路径引用：`/assets/image/xxx.png`
+按**引用方式**选择存放位置（VitePress 2.0 alpha 会把 Markdown 内的绝对路径图片编译为模块导入，public 目录文件不可被导入，直接引用会 500）：
+
+- **Markdown 正文引用的图片**：放 `docs/assets/`（vite root 内），Markdown 中用绝对路径 `/assets/xxx.png` 引用——被编译为资源模块，dev 与 build 均正常（如 `docs/assets/guide/*.png`）
+- **仅 frontmatter / 运行时字符串引用**（首页 hero 图标、logo 等）：放 `docs/.vitepress/public/assets/`，绝对路径引用，原样发布不走编译
 
 ### 4. 部署前检查
 

@@ -11,6 +11,7 @@ export const zh: LocaleConfig = {
     nav: [
       { text: "首页", link: "/zh/" },
       { text: "指南", link: "/zh/guide/" },
+      { text: "API 参考", link: "/zh/api/" },
     ],
     sidebar: {} as any,
     outline: { label: "本页目录", level: [2, 3] },

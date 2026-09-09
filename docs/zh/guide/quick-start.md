@@ -159,5 +159,6 @@ pnpm.cmd dev
 
 ## 下一步
 
-- 浏览 [Shirone-Admin 仓库](https://github.com/bobokaka/Shirone-Admin)，了解功能全貌
-- 更多功能教程（文章编辑、说说发布、AI 助手、一键发布等）将陆续补充到 [指南](./index.md)
+- 深入理解架构：[三仓工作区](./workspace.md)
+- 开始写作：[文章管理](./posts.md) 与 [文章编辑](./post-editor.md)
+- 了解全貌后试一次 [提交和发布](./publish.md)
