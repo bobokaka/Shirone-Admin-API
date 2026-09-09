@@ -21,7 +21,7 @@
   --eco-speed: 0.4s;
   --eco-radius: 14px;
   --eco-radius-lg: 18px;
-  --eco-hero-title: clamp(2.6rem, 6.5vw, 5rem);
+  --eco-hero-title: clamp(2rem, 6.5vw, 5rem);
   --eco-hero-text: clamp(1.1rem, 2vw, 1.35rem);
   --eco-section-title: clamp(1.8rem, 3.5vw, 2.5rem);
   --eco-feature-title: 1.15rem;
@@ -63,6 +63,11 @@
 /* ============================================
    HERO SECTION — Prismatic Aurora Stage
    ============================================ */
+
+/* 装饰性伪元素（极光光晕）在窄屏会超出页面宽度，裁掉横向溢出避免手机端横向滚动 */
+.home {
+  overflow-x: clip;
+}
 
 /* Hero container: full-bleed, light in light-mode, dark in dark-mode */
 .home .VPHero,
@@ -166,25 +171,55 @@
   z-index: 2;
 }
 
+/* 内容列（文字/插画）必须压过 container 的 ::before/::after 装饰层（扫描光带会扫过标题） */
+.home .VPHero .main,
+.home .VPHero .image,
+.home .hero .main,
+.home .hero .image {
+  position: relative;
+  z-index: 3;
+}
+
 /* --- Hero Name: Prismatic Rainbow Gradient Text --- */
-.home .VPHero .name,
+/* 容器查询：标题字号以所在列宽为上限，保证 nowrap 单行永不超出列（桌面 5rem 不受影响） */
+.home .VPHero .main {
+  container-type: inline-size;
+  /* 加宽文字列（VitePress 默认 592px），给单行标题留余量，避免与右侧插画挤压 */
+  max-width: 640px !important;
+}
+/* 入场动画放在 h1.heading 上：渐变 span 自身不携带 opacity/transform/filter/动画，
+   避免 GPU 光栅化下 background-clip:text 尾部字形丢失的 Chromium bug */
+.home .VPHero .heading,
 .home .hero h1,
 .home .hero .name {
-  font-size: var(--eco-hero-title) !important;
-  font-weight: 900 !important;
-  letter-spacing: 0.08em !important;
-  line-height: 1.2 !important;
-  filter: drop-shadow(0 2px 12px rgba(6, 182, 212, 0.15)) drop-shadow(0 4px 24px rgba(139, 92, 246, 0.08));
   opacity: 0;
   transform: translateY(32px);
   animation: eco-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
 }
 
+.home .VPHero .name,
+.home .hero h1,
+.home .hero .name {
+  font-size: min(var(--eco-hero-title), 13.5cqw) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.08em !important;
+  line-height: 1.2 !important;
+  white-space: nowrap;
+  /* VitePress 默认 .name{max-width:576px} 会把盒子封死，nowrap 溢出部分渐变画不到而消失 */
+  max-width: none !important;
+  /* 发光用 text-shadow 实现（不用 filter: drop-shadow，同上） */
+  text-shadow: 0 2px 12px rgba(6, 182, 212, 0.15), 0 4px 24px rgba(139, 92, 246, 0.08);
+}
+
 /* Prismatic gradient on the clip span */
 /* VPHero renders: <span class="name clip"> so .name.clip (no space) is needed */
+/* padding + inline-block：Chromium 的 background-clip:text 按字形包围盒裁剪，
+   letter-spacing 会把尾部字形推出渐变绘制区导致缺字（已知 bug，加内边距修复） */
 .home .VPHero .name.clip,
 .home .hero .name.clip,
 .home .hero h1 .clip {
+  display: inline-block;
+  padding-right: 0.15em;
   background: linear-gradient(
     135deg,
     #67e8f9 0%,
@@ -199,7 +234,7 @@
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
-  animation: eco-prism-shift 6s ease-in-out infinite, eco-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards !important;
+  animation: eco-prism-shift 6s ease-in-out infinite !important;
 }
 
 @keyframes eco-prism-shift {
@@ -210,6 +245,8 @@
 /* Fallback: plain .name without .clip (e.g. custom hero markup) */
 .home .VPHero .name:not(.clip),
 .home .hero .name:not(.clip) {
+  display: inline-block;
+  padding-right: 0.15em;
   background: linear-gradient(
     135deg,
     #67e8f9 0%,
@@ -224,7 +261,7 @@
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
-  animation: eco-prism-shift 6s ease-in-out infinite, eco-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards !important;
+  animation: eco-prism-shift 6s ease-in-out infinite !important;
 }
 
 /* --- Hero Text / Subtitle — with subtle prism accent --- */
@@ -1262,7 +1299,8 @@
 .dark .home .VPHero .name,
 .dark .home .hero h1,
 .dark .home .hero .name {
-  filter: drop-shadow(0 0 48px var(--eco-glow)) drop-shadow(0 0 100px rgba(var(--eco-accent-rgb), 0.25));
+  /* 同样避免在渐变文字上叠加 filter，改用 text-shadow 发光 */
+  text-shadow: 0 0 48px var(--eco-glow), 0 0 100px rgba(var(--eco-accent-rgb), 0.25);
 }
 
 /* Dark mode: restore light text colors for dark hero background */

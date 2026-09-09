@@ -92,8 +92,7 @@ export default withMermaid(defineConfig({
 
   // 主题共享配置
   themeConfig: {
-    logo: "/logo.png",
-    siteTitle: "Shirone Admin API",
+    siteTitle: "Shirone Admin",
     socialLinks: [
       { icon: "github", link: "https://github.com/bobokaka/Shirone-Admin-API" },
     ],
@@ -124,6 +123,7 @@ export default withMermaid(defineConfig({
         nav: [
           { text: "首页", link: "/zh/" },
           { text: "指南", link: "/zh/guide/" },
+          { text: "API 参考", link: "/zh/api/" },
         ],
       },
     },
@@ -170,7 +170,7 @@ export default withMermaid(defineConfig({
         title: "Shirone Admin API Docs",
         baseUrl: hostname,
         copyright: "Copyright © 2026-present bobokaka",
-        description: "基于 VitePress 2.0 的多语言文档站模板",
+        description: "Shirone-Admin 官方文档——安装、使用、配置与 API 参考",
         language: "zh-cn",
         filename: "feed.rss",
         icon: false,
