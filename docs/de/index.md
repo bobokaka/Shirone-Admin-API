@@ -2,50 +2,67 @@
 layout: home
 
 hero:
-  name: Shirone Admin API
-  text: Eine mehrsprachige Dokumentations-Website-Vorlage auf Basis von VitePress 2.0
-  tagline: 9 Sprachen · Mermaid-Diagramme · mathematische Formeln · Volltextsuche · Dunkelmodus · RSS-Feed
+  name: Shirone-Admin
+  text: Das visuelle Content-Management-Tool für deinen Shirone-Blog
+  tagline: Läuft lokal · KI-gestütztes Schreiben · Veröffentlichung in zwei Repositories mit einem Klick — von der Installation bis zur API-Referenz beginnt alles hier
   image:
-    src: /assets/image/home/layout.svg
-    alt: Shirone Admin API
+    src: /assets/image/home/blog.svg
+    alt: Shirone-Admin
   actions:
     - theme: brand
-      text: GitHub-Repository
-      link: https://github.com/bobokaka/Shirone-Admin-API
+      text: Loslegen
+      link: /de/guide/
     - theme: alt
-      text: VitePress-Dokumentation
-      link: https://vitepress.dev/
+      text: GitHub
+      link: https://github.com/bobokaka/Shirone-Admin
 
 features:
-  - title: Mehrsprachige Architektur
-    icon: '<i class="fa-solid fa-language"></i>'
-    details: 9 integrierte Sprachkonfigurationen (vereinfachtes/traditionelles Chinesisch, Englisch, Japanisch, Koreanisch, Französisch, Deutsch, Spanisch, Russisch) mit lokalisierten Oberflächentexten und Verzeichnissen pro Sprache
-  - title: Mermaid-Diagramme
-    icon: '<i class="fa-solid fa-diagram-project"></i>'
-    details: Basierend auf vitepress-plugin-mermaid — Flussdiagramme, Sequenzdiagramme, Klassendiagramme und mehr, mit Dunkelmodus-Unterstützung
-  - title: Mathematische Formeln
-    icon: '<i class="fa-solid fa-square-root-variable"></i>'
-    details: Inline- und Blockformeln, gerendert mit MathJax 3
-  - title: Volltextsuche
-    icon: '<i class="fa-solid fa-magnifying-glass"></i>'
-    details: Lokale VitePress-Suche mit anpassbarer Benutzeroberfläche pro Sprache
-  - title: Markdown-Erweiterungen
-    icon: '<i class="fa-solid fa-markdown"></i>'
-    details: Texthervorhebung, hoch- und tiefgestellte Zeichen sowie Fußnoten inklusive
-  - title: Kommentare & Feed
-    icon: '<i class="fa-solid fa-comments"></i>'
-    details: Giscus-Kommentare (GitHub Discussions) und RSS-Feed sofort einsatzbereit
+  - title: Artikel bearbeiten
+    icon: '<i class="fa-solid fa-file-pen"></i>'
+    details: Markdown-Editor im Quelltextmodus mit eingebauten Shirone-Theme-Snippets (Dreifach-Doppelpunkt-Container, file-tree, Code-Tabs u. a.), Bilder werden direkt im Text verwaltet
+  - title: Momente
+    icon: '<i class="fa-solid fa-comment-dots"></i>'
+    details: Kurze Beiträge veröffentlichen und verwalten, Bilder landen automatisch im Thumbnail-Pipeline-Verzeichnis des Themes
+  - title: Strukturierte Daten
+    icon: '<i class="fa-solid fa-table-list"></i>'
+    details: Visuelle Bearbeitung von Projekten, Skills, Timeline, Geräten, Anime, Navigation und weiteren data/*.ts-Einträgen
+  - title: KI-Assistent
+    icon: '<i class="fa-solid fa-robot"></i>'
+    details: Wechsel zwischen mehreren Anbietern — Importe umschreiben, Commit-Nachrichten generieren, Timelines entwerfen
+  - title: Content-Import
+    icon: '<i class="fa-solid fa-file-import"></i>'
+    details: Alles an einem Ort – Jianshu-Exporte, Anime (Bangumi API) und Musik importieren
+  - title: Veröffentlichung mit einem Klick
+    icon: '<i class="fa-solid fa-rocket"></i>'
+    details: Git-Commit und Push in beide Repositories, mit automatischer Theme-Validierung vor der Veröffentlichung
 
 highlights:
-  - header: Schnellstart
-    image: /assets/image/home/box.svg
+  - header: Warum Shirone-Admin
+    image: /assets/image/home/diamond.svg
     bgImage: /assets/image/home/bg/1-light.svg
     bgImageDark: /assets/image/home/bg/1-dark.svg
+    features:
+      - title: Lokal zuerst
+        icon: fa-house-laptop
+        details: Alle Daten bleiben in deinem eigenen Content-Repository — ein lokales Tool ganz ohne Server
+      - title: Live-Vorschau
+        icon: fa-eye
+        details: astro dev des Theme-Repos eingebettet — was du siehst, ist die echte Seite, die gleich online geht
+      - title: Drei-Repos-Workflow
+        icon: fa-cubes
+        details: Arbeitet Hand in Hand mit dem Shirone-Theme-Repo und dem Shirone-Content-Repo, jede Änderung ist nachvollziehbar
+      - title: Sichere Veröffentlichung
+        icon: fa-shield-halved
+        details: Die Theme-Validierung läuft vor jeder Veröffentlichung automatisch und blockiert sie bei Fehlern
+
+  - header: In drei Minuten startklar
+    image: /assets/image/home/box.svg
+    bgImage: /assets/image/home/bg/2-light.svg
+    bgImageDark: /assets/image/home/bg/2-dark.svg
     highlights:
-      - Repository klonen und pnpm install ausführen
-      - Entwicklungsserver mit pnpm run dev starten und http://localhost:5173 öffnen
-      - Markdown-Seiten unter docs/de/ hinzufügen
-      - Sie in der Konfiguration sidebar-generated.ts registrieren
-      - Navigation und Footer in config/locales/de.ts anpassen
-      - Mit pnpm run build für Produktion bauen und auf einem beliebigen statischen Hosting bereitstellen
+      - Klone Shirone, Shirone-Content und Shirone-Admin ins selbe übergeordnete Verzeichnis
+      - Führe pnpm install in den Repos Shirone-Admin und Shirone aus
+      - Starte alles auf einmal mit node workspace/content-watch.mjs
+      - Öffne http://localhost:5173 im Browser und gehe ins Admin-Panel
+      - Details und weiterführende Nutzung findest du in der Anleitung
 ---

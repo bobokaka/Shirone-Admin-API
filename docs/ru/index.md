@@ -2,50 +2,67 @@
 layout: home
 
 hero:
-  name: Shirone Admin API
-  text: Многоязычный шаблон сайта документации на VitePress 2.0
-  tagline: 9 языков · Диаграммы Mermaid · Формулы · Полнотекстовый поиск · Тёмная тема · RSS-лента
+  name: Shirone-Admin
+  text: Визуальный инструмент управления контентом для блога Shirone
+  tagline: Локальная работа · Письмо с помощью ИИ · Публикация в два репозитория в один клик — от установки до справочника API начните здесь
   image:
-    src: /assets/image/home/layout.svg
-    alt: Shirone Admin API
+    src: /assets/image/home/blog.svg
+    alt: Shirone-Admin
   actions:
     - theme: brand
-      text: Репозиторий GitHub
-      link: https://github.com/bobokaka/Shirone-Admin-API
+      text: Начать
+      link: /ru/guide/
     - theme: alt
-      text: Документация VitePress
-      link: https://vitepress.dev/
+      text: GitHub
+      link: https://github.com/bobokaka/Shirone-Admin
 
 features:
-  - title: Многоязычная архитектура
-    icon: '<i class="fa-solid fa-language"></i>'
-    details: 9 встроенных конфигураций языков (китайский упрощённый/традиционный, английский, японский, корейский, французский, немецкий, испанский, русский) с локализованным интерфейсом и отдельными каталогами
-  - title: Диаграммы Mermaid
-    icon: '<i class="fa-solid fa-diagram-project"></i>'
-    details: На базе vitepress-plugin-mermaid — блок-схемы, диаграммы последовательности, классов и другие, с поддержкой тёмной темы
-  - title: Математические формулы
-    icon: '<i class="fa-solid fa-square-root-variable"></i>'
-    details: Строчные и блочные формулы, отображаемые MathJax 3
-  - title: Полнотекстовый поиск
-    icon: '<i class="fa-solid fa-magnifying-glass"></i>'
-    details: Локальный поиск VitePress с настройкой интерфейса для каждого языка
-  - title: Расширения Markdown
-    icon: '<i class="fa-solid fa-markdown"></i>'
-    details: Выделение текста, верхний и нижний индексы, сноски из коробки
-  - title: Комментарии и лента
-    icon: '<i class="fa-solid fa-comments"></i>'
-    details: Комментарии Giscus (GitHub Discussions) и RSS-лента, готовые к использованию
+  - title: Редактирование статей
+    icon: '<i class="fa-solid fa-file-pen"></i>'
+    details: Редактор Markdown в режиме исходного кода со встроенными сниппетами темы Shirone (контейнеры из трёх двоеточий, file-tree, вкладки кода и др.), изображения управляются вместе с текстом
+  - title: Моменты
+    icon: '<i class="fa-solid fa-comment-dots"></i>'
+    details: Публикация и управление короткими записями, изображения автоматически попадают в каталог конвейера миниатюр темы
+  - title: Структурированные данные
+    icon: '<i class="fa-solid fa-table-list"></i>'
+    details: Визуальное редактирование проектов, навыков, таймлайна, устройств, аниме, навигации и остальных data/*.ts
+  - title: ИИ-ассистент
+    icon: '<i class="fa-solid fa-robot"></i>'
+    details: Переключение между несколькими провайдерами — переписывание импортированного, генерация сообщений коммитов, черновики таймлайна
+  - title: Импорт контента
+    icon: '<i class="fa-solid fa-file-import"></i>'
+    details: Импорт в одном месте — экспорты Jianshu, аниме (Bangumi API) и музыка
+  - title: Публикация в один клик
+    icon: '<i class="fa-solid fa-rocket"></i>'
+    details: Коммит и push в оба репозитория с автоматической проверкой темы перед релизом
 
 highlights:
-  - header: Быстрый старт
-    image: /assets/image/home/box.svg
+  - header: Почему Shirone-Admin
+    image: /assets/image/home/diamond.svg
     bgImage: /assets/image/home/bg/1-light.svg
     bgImageDark: /assets/image/home/bg/1-dark.svg
+    features:
+      - title: Локальность прежде всего
+        icon: fa-house-laptop
+        details: Все данные хранятся в вашем собственном контент-репозитории — локальный инструмент без развёртывания сервера
+      - title: Предпросмотр реального сайта
+        icon: fa-eye
+        details: Встроенный astro dev из репозитория темы — вы видите тот самый сайт, который скоро опубликуете
+      - title: Работа трёх репозиториев
+        icon: fa-cubes
+        details: Действует сообща с репозиторием темы Shirone и репозиторием Shirone-Content, каждое изменение отслеживается
+      - title: Безопасная публикация
+        icon: fa-shield-halved
+        details: Проверка темы запускается автоматически перед публикацией и блокирует релиз при ошибке
+
+  - header: Запуск за три минуты
+    image: /assets/image/home/box.svg
+    bgImage: /assets/image/home/bg/2-light.svg
+    bgImageDark: /assets/image/home/bg/2-dark.svg
     highlights:
-      - Клонируйте репозиторий и выполните pnpm install
-      - Запустите сервер разработки командой pnpm run dev и откройте http://localhost:5173
-      - Добавляйте Markdown-страницы в каталог docs/ru/
-      - Зарегистрируйте их в конфигурации sidebar-generated.ts
-      - Настройте навигацию и подвал в config/locales/ru.ts
-      - Соберите проект командой pnpm run build и разверните на любом статическом хостинге
+      - Склонируйте Shirone, Shirone-Content и Shirone-Admin в одну родительскую директорию
+      - Выполните pnpm install в репозиториях Shirone-Admin и Shirone
+      - Запустите всё сразу командой node workspace/content-watch.mjs
+      - Откройте http://localhost:5173 в браузере и войдите в панель управления
+      - Подробные шаги и расширенное использование — в руководстве
 ---

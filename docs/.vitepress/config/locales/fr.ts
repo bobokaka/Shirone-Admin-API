@@ -5,8 +5,8 @@ type LocaleConfig = LocaleSpecificConfig & { label: string };
 export const fr: LocaleConfig = {
   lang: "fr-FR",
   label: "Français",
-  title: "Shirone Admin API",
-  description: "Modèle de site de documentation multilingue basé sur VitePress 2.0, avec diagrammes Mermaid, formules mathématiques, recherche plein texte et mode sombre",
+  title: "Shirone-Admin",
+  description: "Documentation officielle de Shirone-Admin — l'outil de gestion visuelle de contenu pour le blog Shirone. Installation, utilisation, configuration et référence API.",
   themeConfig: {
     nav: [
       { text: "Accueil", link: "/fr/" },
@@ -21,7 +21,18 @@ export const fr: LocaleConfig = {
     lightModeSwitchTitle: "Passer au thème clair",
     darkModeSwitchTitle: "Passer au thème sombre",
     footer: {
-      message: `Copyright © 2026-present bobokaka · Powered by <a href="https://vitepress.dev/" target="_blank">VitePress</a>`,
+      message: `<div style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;width:100%">
+    <div style="display:inline-block;margin-bottom:4px;margin-right:8px">版权所有 ©2025-present  湖南衍宇科技有限公司 </div>
+    <div style="margin-right:8px;display:inline-block;margin-bottom:4px">
+      <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">湘ICP备2025108289号-1 </a>
+    </div>
+    <div style="margin-right:8px;display:inline-block;margin-bottom:4px">
+      <div style="display:flex;align-items:center;justify-content:center">
+        <img style="width:18px;height:18px;margin-right:12px" src="/assets/image/home/police-icon.png"/>
+        <a style="height:auto" href="https://beian.mps.gov.cn/#/query/webSearch?code=43010402002123" rel="noreferrer" target="_blank">湘公网安备43010402002123号</a>
+      </div>
+    </div>
+  </div>`,
     },
     search: { provider: "local" },
   },

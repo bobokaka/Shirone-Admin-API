@@ -1,12 +1,27 @@
 # CLAUDE.md
 
-此文件为 Claude Code（claude.ai/code）在处理本代码库时提供了指导。
+此文件为 Claude Code（claude.ai/code）在处理本代码库时提供指导。
 
-## 项目概述
+## 项目定位
 
-这是一个基于 VitePress 2.0 的多语言文档站模板，技术栈：VitePress 2.0 + Vue 3 + TypeScript + Vite，使用 VitePress 默认主题并深度定制。
+本仓库是 **Shirone-Admin 的官方文档站**——之于 [Shirone-Admin](https://github.com/bobokaka/Shirone-Admin)，正如 [vuejs.org](https://vuejs.org/) 之于 Vue。开源项目（Apache 2.0）。
 
-**项目名称**：`shirone-admin-api`
+- **Shirone-Admin**：[Shirone](https://github.com/LyraVoid/Shirone) 博客的可视化内容管理工具（本地单机运行、前后端分离、AI 辅助写作、一键双仓发布）
+- **本仓库**：文档源码与站点配置，基于 VitePress 2.0 + Vue 3 + TypeScript，默认主题深度定制，9 种语言
+- **上游联动**：同工作区的 `../Shirone-Admin` 是文档内容的唯一事实来源。上游功能变更时必须同步更新对应文档；文档不得虚构上游不存在的行为，存疑时先读上游源码或其 CLAUDE.md 求证
+
+## 内容模型（核心）
+
+所有文档内容从两类读者出发编写，对应两个内容板块：
+
+| 读者 | 板块 | 目录 | 写法要求 |
+|------|------|------|----------|
+| 初学者（完全不了解 Shirone-Admin） | 指南 | `docs/<lang>/guide/` | 教程式：由浅入深、每步可复现、不预设任何背景知识；概念首次出现时就地解释或给出链接 |
+| 熟练使用者 | API 参考 | `docs/<lang>/api/` | 字典式：条目完备、结构统一（用途/签名/参数/返回值/默认值/副作用）、可脱离上下文独立查阅、每条附最小可运行示例 |
+
+- 以 `zh` 为基准语言，其余语言目录结构与条目一一对应；推荐顺序：先写 `zh` 校准内容 → 补 `en` → 其余语言按同一骨架翻译
+- 示例必须真实可运行，禁止「示意性」伪代码冒充示例
+- **禁止「模板」残留表述**：本站是 Shirone-Admin 的产品文档，不是可克隆的文档站模板，行文以 Shirone-Admin 为主体
 
 ## 开发命令
 
@@ -23,18 +38,21 @@ pnpm run preview    # 预览构建结果
 
 - **本项目完整构建需要约 20GB 内存**，普通电脑极有可能在构建过程中因内存耗尽而卡死。
 - **开发调试请使用 `pnpm run dev`**：开发服务器增量编译，内存占用可控。
-- **仅在确认代码无误并准备部署时执行构建**，且确保运行机器有充足内存（建议 32GB 以上）。
+- **仅在确认内容无误并准备部署时执行构建**，且确保运行机器有充足内存（建议 32GB 以上）。
 
 ## 项目架构
 
 ### 目录结构
 
 ```
-shirone-admin-api/
+Shirone-Admin-API/
 ├── docs/                        # 文档根目录
 │   ├── index.md                 # 根路径重定向到 /zh/
-│   ├── zh/                      # 简体中文（默认语言）
-│   ├── zh-hant/  en/  ja/  ko/  fr/  de/  es/  ru/   # 其他 8 种语言
+│   ├── zh/                      # 简体中文（默认语言、内容基准）
+│   │   ├── index.md             # 首页（frontmatter 驱动）
+│   │   ├── guide/               # 指南：面向初学者的教程
+│   │   └── api/                 # API 参考：面向熟练使用者的字典
+│   ├── zh-hant/  en/  ja/  ko/  fr/  de/  es/  ru/   # 其余 8 种语言，结构与 zh 对齐
 │   │
 │   └── .vitepress/
 │       ├── config.mts           # 配置入口（从 config/ 导出）
@@ -80,15 +98,15 @@ shirone-admin-api/
 
 ### 1. 添加新文档页面
 
-1. 在 `docs/<lang>/` 对应目录下创建 `.md` 文件
-2. 在 `docs/.vitepress/config/sidebar-generated.ts` 中补充对应语言前缀的侧边栏条目（key 形如 `/zh/xxx/`，`config/index.ts` 的 `mergeSidebar` 会按前缀过滤分发给各 locale）
+1. 在 `docs/<lang>/guide/` 或 `docs/<lang>/api/` 下创建 `.md` 文件（先写 `zh`，再同步其他语言）
+2. 在 `docs/.vitepress/config/sidebar-generated.ts` 中补充对应语言前缀的侧边栏条目（key 形如 `/zh/guide/`，`config/index.ts` 的 `mergeSidebar` 会按前缀过滤分发给各 locale）
 3. 如需导航入口，编辑 `config/locales/<lang>.ts` 的 `nav`
 
 ### 2. 添加新语言
 
 1. 在 `config/locales/` 下创建新的语言配置文件
 2. 在 `config/index.ts` 的 `locales` 中导入、注册，并用 `mergeSidebar` 合并侧边栏
-3. 在 `docs/` 下创建对应语言的内容目录
+3. 在 `docs/` 下创建对应语言的内容目录（结构复制自 `zh`）
 4. 更新 `themeConfig.search.options.locales` 中的搜索界面文案
 
 ### 3. 静态资源管理

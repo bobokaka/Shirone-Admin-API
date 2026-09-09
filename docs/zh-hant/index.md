@@ -2,50 +2,67 @@
 layout: home
 
 hero:
-  name: Shirone Admin API
-  text: 基於 VitePress 2.0 的多語言文檔站模板
-  tagline: 9 種語言 · Mermaid 圖表 · 數學公式 · 全文搜索 · 暗色模式 · RSS 訂閱
+  name: Shirone-Admin
+  text: Shirone 部落格的視覺化內容管理工具
+  tagline: 本地單機運行 · AI 輔助寫作 · 一鍵雙倉發布——從安裝上手到 API 查閱，這裡是你了解它的第一站
   image:
-    src: /assets/image/home/layout.svg
-    alt: Shirone Admin API
+    src: /assets/image/home/blog.svg
+    alt: Shirone-Admin
   actions:
     - theme: brand
-      text: GitHub 倉庫
-      link: https://github.com/bobokaka/Shirone-Admin-API
+      text: 快速開始
+      link: /zh-hant/guide/
     - theme: alt
-      text: VitePress 文檔
-      link: https://vitepress.dev/
+      text: GitHub
+      link: https://github.com/bobokaka/Shirone-Admin
 
 features:
-  - title: 多語言架構
-    icon: '<i class="fa-solid fa-language"></i>'
-    details: 內置 9 種語言配置（簡繁中文、英、日、韓、法、德、西、俄），本地化界面文案與獨立目錄開箱即用
-  - title: Mermaid 圖表
-    icon: '<i class="fa-solid fa-diagram-project"></i>'
-    details: 集成 vitepress-plugin-mermaid，支持流程圖、時序圖、類圖等，並適配暗色模式
-  - title: 數學公式
-    icon: '<i class="fa-solid fa-square-root-variable"></i>'
-    details: 基於 MathJax 3 渲染行內與塊級數學公式
-  - title: 全文搜索
-    icon: '<i class="fa-solid fa-magnifying-glass"></i>'
-    details: VitePress 本地搜索，支持按語言定制搜索界面文案
-  - title: Markdown 擴展
-    icon: '<i class="fa-solid fa-markdown"></i>'
-    details: 高亮標記、上標、下標、腳註等擴展語法
-  - title: 評論與訂閱
-    icon: '<i class="fa-solid fa-comments"></i>'
-    details: Giscus 評論（基於 GitHub Discussions）與 RSS 訂閱開箱即用
+  - title: 文章編輯
+    icon: '<i class="fa-solid fa-file-pen"></i>'
+    details: Markdown 原始碼模式編輯器，內建 Shirone 主題私有擴充片段（三冒號容器、file-tree、程式碼標籤頁等），配圖隨文管理
+  - title: 說說與動態
+    icon: '<i class="fa-solid fa-comment-dots"></i>'
+    details: 動態發布與管理，圖片自動歸檔到主題縮圖管線目錄
+  - title: 結構化數據
+    icon: '<i class="fa-solid fa-table-list"></i>'
+    details: 專案、技能、時間線、設備、番劇、導航等 data/*.ts 視覺化編輯
+  - title: AI 助手
+    icon: '<i class="fa-solid fa-robot"></i>'
+    details: 多服務商配置切換，輔助內容匯入改寫、提交訊息生成、時間線起草
+  - title: 內容匯入
+    icon: '<i class="fa-solid fa-file-import"></i>'
+    details: 簡書匯出包、番劇（Bangumi API）、音樂一站式匯入
+  - title: 一鍵發布
+    icon: '<i class="fa-solid fa-rocket"></i>'
+    details: 雙倉 git 提交與推送，發布前自動執行主題校驗
 
 highlights:
-  - header: 快速開始
-    image: /assets/image/home/box.svg
+  - header: 為什麼選擇 Shirone-Admin
+    image: /assets/image/home/diamond.svg
     bgImage: /assets/image/home/bg/1-light.svg
     bgImageDark: /assets/image/home/bg/1-dark.svg
+    features:
+      - title: 本地優先
+        icon: fa-house-laptop
+        details: 數據全部保存在你自己的內容倉，單機運行，無需部署伺服端
+      - title: 真站預覽
+        icon: fa-eye
+        details: 內嵌主題倉 astro dev 即時預覽，所見即即將發布的真實站點
+      - title: 三倉協作
+        icon: fa-cubes
+        details: 與 Shirone 主題倉、Shirone-Content 內容倉各司其職，改動來源清晰可追溯
+      - title: 安全發布
+        icon: fa-shield-halved
+        details: 發布前自動執行主題校驗，失敗即阻斷，杜絕壞內容上線
+
+  - header: 三分鐘啟動
+    image: /assets/image/home/box.svg
+    bgImage: /assets/image/home/bg/2-light.svg
+    bgImageDark: /assets/image/home/bg/2-dark.svg
     highlights:
-      - 克隆倉庫後執行 pnpm install 安裝依賴
-      - 運行 pnpm run dev 啟動開發服務器，訪問 http://localhost:5173
-      - 在 docs/zh-hant/ 目錄下新增 Markdown 文檔
-      - 在 sidebar-generated.ts 中補充對應語言的側邊欄配置
-      - 修改 config/locales/zh-hant.ts 定制導航與頁腳
-      - 執行 pnpm run build 構建生產產物，可部署到任意靜態託管服務
+      - 將 Shirone、Shirone-Content、Shirone-Admin 三個倉庫克隆到同一父目錄
+      - 在 Shirone-Admin 與 Shirone 倉庫分別執行 pnpm install
+      - 運行 node workspace/content-watch.mjs 一鍵啟動全部服務
+      - 瀏覽器訪問 http://localhost:5173 進入管理後台
+      - 詳細步驟與進階用法見指南章節
 ---
