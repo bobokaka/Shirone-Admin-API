@@ -1,0 +1,1447 @@
+/* ============================================
+   Homepage — Prismatic Nebula Theme
+   Aesthetic: Cosmic aurora meets holographic HUD
+   — iridescent particles, prismatic gradients,
+   and neon-edge cybernetic elegance
+   ============================================ */
+
+/* === Design Tokens === */
+:root {
+  --eco-accent: #0891b2;
+  --eco-accent-rgb: 8, 145, 178;
+  --eco-accent-light: #22d3ee;
+  --eco-accent-dark: #0e7490;
+  --eco-glow: rgba(8, 145, 178, 0.35);
+  --eco-glow-strong: rgba(8, 145, 178, 0.55);
+  --eco-glow-subtle: rgba(8, 145, 178, 0.12);
+  --eco-warm: #f59e0b;
+  --eco-hero-bg: #f5f8fc;
+  --eco-grid-size: 72px;
+  --eco-grid-line: rgba(8, 145, 178, 0.08);
+  --eco-speed: 0.4s;
+  --eco-radius: 14px;
+  --eco-radius-lg: 18px;
+  --eco-hero-title: clamp(2.6rem, 6.5vw, 5rem);
+  --eco-hero-text: clamp(1.1rem, 2vw, 1.35rem);
+  --eco-section-title: clamp(1.8rem, 3.5vw, 2.5rem);
+  --eco-feature-title: 1.15rem;
+  --eco-feature-details: 0.95rem;
+
+  /* Prismatic palette for aurora effects */
+  --eco-prism-cyan: #06b6d4;
+  --eco-prism-violet: #8b5cf6;
+  --eco-prism-rose: #f43f5e;
+  --eco-prism-amber: #f59e0b;
+  --eco-prism-emerald: #10b981;
+  --eco-prism-blue: #3b82f6;
+}
+
+.dark {
+  --eco-accent: #22d3ee;
+  --eco-accent-rgb: 34, 211, 238;
+  --eco-accent-light: #67e8f9;
+  --eco-accent-dark: #06b6d4;
+  --eco-glow: rgba(34, 211, 238, 0.4);
+  --eco-glow-strong: rgba(34, 211, 238, 0.6);
+  --eco-glow-subtle: rgba(34, 211, 238, 0.08);
+  --eco-warm: #fbbf24;
+  --eco-hero-bg: #020617;
+  --eco-grid-line: rgba(34, 211, 238, 0.04);
+}
+
+/* === Accessibility: Respect reduced motion === */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   HERO SECTION — Prismatic Aurora Stage
+   ============================================ */
+
+/* Hero container: full-bleed, light in light-mode, dark in dark-mode */
+.home .VPHero,
+.home .hero {
+  position: relative;
+  padding-top: calc(var(--vp-nav-height) + 64px) !important;
+  padding-bottom: 160px !important;
+}
+
+/* Layer 1: Background with animated grid */
+.home .VPHero::before,
+.home .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--eco-hero-bg);
+  background-image:
+    linear-gradient(var(--eco-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--eco-grid-line) 1px, transparent 1px);
+  background-size: var(--eco-grid-size) var(--eco-grid-size);
+  z-index: 0;
+  animation: eco-grid-drift 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes eco-grid-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: var(--eco-grid-size) var(--eco-grid-size); }
+}
+
+/* Layer 2: Bottom gradient fade to page background */
+.home .VPHero::after,
+.home .hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 240px;
+  background: linear-gradient(to top, var(--vp-c-bg), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Center prismatic aurora glow — multi-color radial */
+.home .VPHero .container::before,
+.home .hero .container::before {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(1400px, 100%);
+  height: 900px;
+  background:
+    radial-gradient(ellipse 600px 400px at 30% 40%, rgba(6, 182, 212, 0.12), transparent),
+    radial-gradient(ellipse 500px 350px at 70% 50%, rgba(139, 92, 246, 0.1), transparent),
+    radial-gradient(ellipse 400px 300px at 50% 60%, rgba(16, 185, 129, 0.08), transparent),
+    radial-gradient(ellipse 700px 500px at 50% 50%, rgba(var(--eco-accent-rgb), 0.06), transparent);
+  z-index: 1;
+  pointer-events: none;
+  animation: eco-aurora-breathe 8s ease-in-out infinite alternate;
+}
+
+@keyframes eco-aurora-breathe {
+  0% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+}
+
+/* Prismatic scanning light sweep — multi-color */
+.home .VPHero .container::after,
+.home .hero .container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(6, 182, 212, 0.05),
+    rgba(139, 92, 246, 0.04),
+    rgba(16, 185, 129, 0.05),
+    transparent
+  );
+  z-index: 1;
+  pointer-events: none;
+  animation: eco-scan-prism 12s ease-in-out infinite;
+}
+
+@keyframes eco-scan-prism {
+  0%, 100% { left: -40%; }
+  50% { left: 100%; }
+}
+
+/* Ensure hero content is above all effects */
+.home .VPHero .container,
+.home .hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Hero Name: Prismatic Rainbow Gradient Text --- */
+.home .VPHero .name,
+.home .hero h1,
+.home .hero .name {
+  font-size: var(--eco-hero-title) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.08em !important;
+  line-height: 1.2 !important;
+  filter: drop-shadow(0 2px 12px rgba(6, 182, 212, 0.15)) drop-shadow(0 4px 24px rgba(139, 92, 246, 0.08));
+  opacity: 0;
+  transform: translateY(32px);
+  animation: eco-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+/* Prismatic gradient on the clip span */
+/* VPHero renders: <span class="name clip"> so .name.clip (no space) is needed */
+.home .VPHero .name.clip,
+.home .hero .name.clip,
+.home .hero h1 .clip {
+  background: linear-gradient(
+    135deg,
+    #67e8f9 0%,
+    #a78bfa 25%,
+    #f9a8d4 45%,
+    #fbbf24 60%,
+    #34d399 75%,
+    #60a5fa 90%,
+    #67e8f9 100%
+  ) !important;
+  background-size: 300% 300% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: eco-prism-shift 6s ease-in-out infinite, eco-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards !important;
+}
+
+@keyframes eco-prism-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Fallback: plain .name without .clip (e.g. custom hero markup) */
+.home .VPHero .name:not(.clip),
+.home .hero .name:not(.clip) {
+  background: linear-gradient(
+    135deg,
+    #67e8f9 0%,
+    #a78bfa 25%,
+    #f9a8d4 45%,
+    #fbbf24 60%,
+    #34d399 75%,
+    #60a5fa 90%,
+    #67e8f9 100%
+  ) !important;
+  background-size: 300% 300% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: eco-prism-shift 6s ease-in-out infinite, eco-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards !important;
+}
+
+/* --- Hero Text / Subtitle — with subtle prism accent --- */
+.home .VPHero .text,
+.home .hero .text {
+  color: rgba(30, 41, 59, 0.85) !important;
+  font-size: var(--eco-hero-text) !important;
+  font-weight: 400 !important;
+  max-width: 640px;
+  line-height: 1.9 !important;
+  letter-spacing: 0.02em !important;
+  opacity: 0;
+  transform: translateY(32px);
+  animation: eco-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.home .VPHero .tagline,
+.home .hero .tagline {
+  color: rgba(30, 41, 59, 0.55) !important;
+  font-size: 1.05rem !important;
+  opacity: 0;
+  transform: translateY(32px);
+  animation: eco-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+/* --- Hero Action Buttons — prismatic glow --- */
+.home .VPHero .actions,
+.home .hero .actions {
+  opacity: 0;
+  transform: translateY(32px);
+  animation: eco-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+  margin-top: 8px !important;
+}
+
+.home .VPHero .actions .VPButton,
+.home .hero .actions .VPButton {
+  border-radius: 12px !important;
+  padding: 14px 36px !important;
+  font-weight: 700 !important;
+  font-size: 1.05rem !important;
+  letter-spacing: 0.04em !important;
+  transition: all var(--eco-speed) ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer sweep on button surface */
+.home .VPHero .actions .VPButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: left 0.6s ease;
+}
+
+.home .VPHero .actions .VPButton:hover::before,
+.home .hero .actions .VPButton:hover::before {
+  left: 100%;
+}
+
+/* Brand button: prismatic gradient with pulsing glow */
+.home .VPHero .actions .VPButton.brand,
+.home .hero .actions .VPButton.brand {
+  background: linear-gradient(
+    135deg,
+    var(--eco-accent-dark),
+    var(--eco-accent),
+    var(--eco-accent-light)
+  ) !important;
+  border: 1px solid rgba(var(--eco-accent-rgb), 0.4) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 4px 20px rgba(var(--eco-accent-rgb), 0.2),
+    0 0 40px rgba(var(--eco-accent-rgb), 0.06) !important;
+  animation: eco-btn-pulse 3s ease-in-out infinite;
+}
+
+@keyframes eco-btn-pulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(var(--eco-accent-rgb), 0.2), 0 0 40px rgba(var(--eco-accent-rgb), 0.06); }
+  50% { box-shadow: 0 6px 28px rgba(var(--eco-accent-rgb), 0.3), 0 0 60px rgba(var(--eco-accent-rgb), 0.1); }
+}
+
+.home .VPHero .actions .VPButton.brand:hover,
+.home .hero .actions .VPButton.brand:hover {
+  box-shadow:
+    0 8px 40px rgba(var(--eco-accent-rgb), 0.35),
+    0 0 80px rgba(var(--eco-accent-rgb), 0.12),
+    0 0 0 1px rgba(var(--eco-accent-rgb), 0.4) !important;
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(var(--eco-accent-rgb), 0.7) !important;
+}
+
+/* Alt button: frosted glass with rainbow border shimmer */
+.home .VPHero .actions .VPButton.alt,
+.home .hero .actions .VPButton.alt {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(8, 145, 178, 0.2) !important;
+  color: rgba(30, 41, 59, 0.85) !important;
+}
+
+.home .VPHero .actions .VPButton.alt:hover,
+.home .hero .actions .VPButton.alt:hover {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-color: transparent !important;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+    linear-gradient(135deg, #06b6d4, #8b5cf6, #f43f5e, #10b981) !important;
+  background-origin: border-box !important;
+  background-clip: padding-box, border-box !important;
+  color: #0e7490 !important;
+  box-shadow:
+    0 4px 30px rgba(139, 92, 246, 0.12),
+    0 0 60px rgba(6, 182, 212, 0.06) !important;
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* --- Hero Image: holographic floating --- */
+.home .VPHero .image,
+.home .hero .image {
+  opacity: 0;
+  animation: eco-float 7s ease-in-out infinite, eco-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+  filter: drop-shadow(0 0 40px rgba(6, 182, 212, 0.12)) drop-shadow(0 0 80px rgba(139, 92, 246, 0.08));
+}
+
+.home .VPHero .image img,
+.home .hero .image img {
+  filter: drop-shadow(0 16px 60px rgba(0, 0, 0, 0.15));
+  max-width: 100%;
+}
+
+@keyframes eco-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes eco-fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   FEATURES SECTION — Prismatic Holographic Cards
+   ============================================ */
+
+.home .VPFeatures {
+  position: relative;
+  padding-top: 64px !important;
+  padding-bottom: 80px !important;
+  margin-bottom: 40px !important;
+  overflow: hidden;
+}
+
+/* Features section: prismatic divider line */
+.home .VPFeatures::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(6, 182, 212, 0.25),
+    rgba(139, 92, 246, 0.2),
+    rgba(244, 63, 94, 0.15),
+    transparent
+  );
+  animation: eco-divider-shimmer 4s ease-in-out infinite alternate;
+}
+
+@keyframes eco-divider-shimmer {
+  0% { width: 200px; opacity: 0.6; }
+  100% { width: 400px; opacity: 1; }
+}
+
+/* Features section: multi-color prismatic glow blobs */
+.home .VPFeatures::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 800px 500px at 5% 20%, rgba(6, 182, 212, 0.07), transparent),
+    radial-gradient(ellipse 600px 400px at 95% 40%, rgba(139, 92, 246, 0.06), transparent),
+    radial-gradient(ellipse 500px 350px at 50% 80%, rgba(16, 185, 129, 0.04), transparent),
+    radial-gradient(ellipse 400px 300px at 30% 60%, rgba(244, 63, 94, 0.03), transparent);
+  pointer-events: none;
+  animation: eco-features-bg-shift 15s ease-in-out infinite alternate;
+}
+
+@keyframes eco-features-bg-shift {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.dark .home .VPFeatures::after {
+  background:
+    radial-gradient(ellipse 800px 500px at 5% 20%, rgba(6, 182, 212, 0.05), transparent),
+    radial-gradient(ellipse 600px 400px at 95% 40%, rgba(139, 92, 246, 0.04), transparent),
+    radial-gradient(ellipse 500px 350px at 50% 80%, rgba(16, 185, 129, 0.03), transparent),
+    radial-gradient(ellipse 400px 300px at 30% 60%, rgba(244, 63, 94, 0.02), transparent);
+}
+
+/* Ensure features grid is above background blobs */
+.home .VPFeatures .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Feature Card: holographic glass-morphism with prismatic border --- */
+.home .VPFeature-card {
+  background: rgba(var(--eco-accent-rgb), 0.02);
+  border: 1px solid rgba(var(--eco-accent-rgb), 0.08);
+  border-radius: var(--eco-radius-lg) !important;
+  padding: 32px 28px !important;
+  height: 100%;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Prismatic animated gradient top border on hover */
+.home .VPFeature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #06b6d4 15%,
+    #8b5cf6 30%,
+    #f43f5e 50%,
+    #fbbf24 65%,
+    #10b981 80%,
+    #3b82f6 95%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity var(--eco-speed) ease;
+}
+
+/* Multi-color corner glow */
+.home .VPFeature-card::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 120px;
+  height: 120px;
+  background:
+    radial-gradient(circle at top right, rgba(6, 182, 212, 0.1), transparent 50%),
+    radial-gradient(circle at top right, rgba(139, 92, 246, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity var(--eco-speed) ease;
+  pointer-events: none;
+}
+
+.home .VPFeature-card:hover {
+  border-color: rgba(var(--eco-accent-rgb), 0.3);
+  box-shadow:
+    0 16px 64px rgba(var(--eco-accent-rgb), 0.12),
+    0 0 100px rgba(6, 182, 212, 0.04),
+    0 0 100px rgba(139, 92, 246, 0.03),
+    inset 0 1px 0 rgba(var(--eco-accent-rgb), 0.1);
+  transform: translateY(-8px);
+  background: rgba(var(--eco-accent-rgb), 0.04);
+}
+
+.home .VPFeature-card:hover::before {
+  opacity: 1;
+  animation: eco-border-shimmer 2s ease-in-out infinite;
+}
+
+.home .VPFeature-card:hover::after {
+  opacity: 1;
+}
+
+@keyframes eco-border-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* --- Feature Icon: holographic glow --- */
+.home .VPFeature .icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--eco-accent-rgb), 0.06);
+  border: 1px solid rgba(var(--eco-accent-rgb), 0.08);
+  border-radius: 14px;
+  margin-bottom: 20px;
+  transition: all var(--eco-speed) ease;
+}
+
+.home .VPFeature-card:hover .icon {
+  background: rgba(var(--eco-accent-rgb), 0.14);
+  border-color: rgba(var(--eco-accent-rgb), 0.2);
+  box-shadow: 0 0 32px rgba(var(--eco-accent-rgb), 0.2);
+  transform: scale(1.08);
+}
+
+.home .VPFeature .icon i.fa-solid {
+  font-size: 24px;
+  color: var(--eco-accent);
+  transition: color var(--eco-speed) ease, filter var(--eco-speed) ease;
+}
+
+.home .VPFeature-card:hover .icon i.fa-solid {
+  color: var(--eco-accent-light);
+  filter: drop-shadow(0 0 8px rgba(var(--eco-accent-rgb), 0.5));
+}
+
+/* --- Feature Title & Details: larger typography --- */
+.home .VPFeature .title {
+  font-size: var(--eco-feature-title);
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.home .VPFeature .details {
+  font-size: var(--eco-feature-details);
+  color: var(--vp-c-text-2);
+  line-height: 1.8;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* ============================================
+   FEATURES — Vibrant Per-Card Color Palette
+   Each card: tinted bg + colored top border + vivid icon + gradient title
+   ============================================ */
+
+/* 1: Cyan */
+.home .VPFeature:nth-child(1) .VPFeature-card { background: rgba(6, 182, 212, 0.04); border-color: rgba(6, 182, 212, 0.12); }
+.home .VPFeature:nth-child(1) .VPFeature-card::before { background: linear-gradient(90deg, transparent, #06b6d4, #22d3ee, transparent) !important; opacity: 1 !important; }
+.home .VPFeature:nth-child(1) .icon i.fa-solid { color: #06b6d4; }
+.home .VPFeature:nth-child(1) .icon { background: rgba(6, 182, 212, 0.12); border-color: rgba(6, 182, 212, 0.2); }
+.home .VPFeature:nth-child(1):hover .icon { background: rgba(6, 182, 212, 0.22); box-shadow: 0 0 36px rgba(6, 182, 212, 0.3), 0 0 80px rgba(6, 182, 212, 0.08); }
+.home .VPFeature:nth-child(1):hover { box-shadow: 0 16px 64px rgba(6, 182, 212, 0.15), 0 0 100px rgba(6, 182, 212, 0.06); }
+.home .VPFeature:nth-child(1) .title { color: #0e7490; }
+.dark .home .VPFeature:nth-child(1) .title { color: #22d3ee; }
+
+/* 2: Violet */
+.home .VPFeature:nth-child(2) .VPFeature-card { background: rgba(139, 92, 246, 0.04); border-color: rgba(139, 92, 246, 0.12); }
+.home .VPFeature:nth-child(2) .VPFeature-card::before { background: linear-gradient(90deg, transparent, #8b5cf6, #a78bfa, transparent) !important; opacity: 1 !important; }
+.home .VPFeature:nth-child(2) .icon i.fa-solid { color: #8b5cf6; }
+.home .VPFeature:nth-child(2) .icon { background: rgba(139, 92, 246, 0.12); border-color: rgba(139, 92, 246, 0.2); }
+.home .VPFeature:nth-child(2):hover .icon { background: rgba(139, 92, 246, 0.22); box-shadow: 0 0 36px rgba(139, 92, 246, 0.3), 0 0 80px rgba(139, 92, 246, 0.08); }
+.home .VPFeature:nth-child(2):hover { box-shadow: 0 16px 64px rgba(139, 92, 246, 0.15), 0 0 100px rgba(139, 92, 246, 0.06); }
+.home .VPFeature:nth-child(2) .title { color: #6d28d9; }
+.dark .home .VPFeature:nth-child(2) .title { color: #a78bfa; }
+
+/* 3: Amber */
+.home .VPFeature:nth-child(3) .VPFeature-card { background: rgba(245, 158, 11, 0.04); border-color: rgba(245, 158, 11, 0.12); }
+.home .VPFeature:nth-child(3) .VPFeature-card::before { background: linear-gradient(90deg, transparent, #f59e0b, #fbbf24, transparent) !important; opacity: 1 !important; }
+.home .VPFeature:nth-child(3) .icon i.fa-solid { color: #f59e0b; }
+.home .VPFeature:nth-child(3) .icon { background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.2); }
+.home .VPFeature:nth-child(3):hover .icon { background: rgba(245, 158, 11, 0.22); box-shadow: 0 0 36px rgba(245, 158, 11, 0.3), 0 0 80px rgba(245, 158, 11, 0.08); }
+.home .VPFeature:nth-child(3):hover { box-shadow: 0 16px 64px rgba(245, 158, 11, 0.15), 0 0 100px rgba(245, 158, 11, 0.06); }
+.home .VPFeature:nth-child(3) .title { color: #b45309; }
+.dark .home .VPFeature:nth-child(3) .title { color: #fbbf24; }
+
+/* 4: Rose */
+.home .VPFeature:nth-child(4) .VPFeature-card { background: rgba(244, 63, 94, 0.04); border-color: rgba(244, 63, 94, 0.12); }
+.home .VPFeature:nth-child(4) .VPFeature-card::before { background: linear-gradient(90deg, transparent, #f43f5e, #fb7185, transparent) !important; opacity: 1 !important; }
+.home .VPFeature:nth-child(4) .icon i.fa-solid { color: #f43f5e; }
+.home .VPFeature:nth-child(4) .icon { background: rgba(244, 63, 94, 0.12); border-color: rgba(244, 63, 94, 0.2); }
+.home .VPFeature:nth-child(4):hover .icon { background: rgba(244, 63, 94, 0.22); box-shadow: 0 0 36px rgba(244, 63, 94, 0.3), 0 0 80px rgba(244, 63, 94, 0.08); }
+.home .VPFeature:nth-child(4):hover { box-shadow: 0 16px 64px rgba(244, 63, 94, 0.15), 0 0 100px rgba(244, 63, 94, 0.06); }
+.home .VPFeature:nth-child(4) .title { color: #be123c; }
+.dark .home .VPFeature:nth-child(4) .title { color: #fb7185; }
+
+/* 5: Emerald */
+.home .VPFeature:nth-child(5) .VPFeature-card { background: rgba(16, 185, 129, 0.04); border-color: rgba(16, 185, 129, 0.12); }
+.home .VPFeature:nth-child(5) .VPFeature-card::before { background: linear-gradient(90deg, transparent, #10b981, #34d399, transparent) !important; opacity: 1 !important; }
+.home .VPFeature:nth-child(5) .icon i.fa-solid { color: #10b981; }
+.home .VPFeature:nth-child(5) .icon { background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.2); }
+.home .VPFeature:nth-child(5):hover .icon { background: rgba(16, 185, 129, 0.22); box-shadow: 0 0 36px rgba(16, 185, 129, 0.3), 0 0 80px rgba(16, 185, 129, 0.08); }
+.home .VPFeature:nth-child(5):hover { box-shadow: 0 16px 64px rgba(16, 185, 129, 0.15), 0 0 100px rgba(16, 185, 129, 0.06); }
+.home .VPFeature:nth-child(5) .title { color: #047857; }
+.dark .home .VPFeature:nth-child(5) .title { color: #34d399; }
+
+/* 6: Blue */
+.home .VPFeature:nth-child(6) .VPFeature-card { background: rgba(59, 130, 246, 0.04); border-color: rgba(59, 130, 246, 0.12); }
+.home .VPFeature:nth-child(6) .VPFeature-card::before { background: linear-gradient(90deg, transparent, #3b82f6, #60a5fa, transparent) !important; opacity: 1 !important; }
+.home .VPFeature:nth-child(6) .icon i.fa-solid { color: #3b82f6; }
+.home .VPFeature:nth-child(6) .icon { background: rgba(59, 130, 246, 0.12); border-color: rgba(59, 130, 246, 0.2); }
+.home .VPFeature:nth-child(6):hover .icon { background: rgba(59, 130, 246, 0.22); box-shadow: 0 0 36px rgba(59, 130, 246, 0.3), 0 0 80px rgba(59, 130, 246, 0.08); }
+.home .VPFeature:nth-child(6):hover { box-shadow: 0 16px 64px rgba(59, 130, 246, 0.15), 0 0 100px rgba(59, 130, 246, 0.06); }
+.home .VPFeature:nth-child(6) .title { color: #1d4ed8; }
+.dark .home .VPFeature:nth-child(6) .title { color: #60a5fa; }
+
+/* 7: Orange */
+.home .VPFeature:nth-child(7) .VPFeature-card { background: rgba(249, 115, 22, 0.04); border-color: rgba(249, 115, 22, 0.12); }
+.home .VPFeature:nth-child(7) .VPFeature-card::before { background: linear-gradient(90deg, transparent, #f97316, #fb923c, transparent) !important; opacity: 1 !important; }
+.home .VPFeature:nth-child(7) .icon i.fa-solid { color: #f97316; }
+.home .VPFeature:nth-child(7) .icon { background: rgba(249, 115, 22, 0.12); border-color: rgba(249, 115, 22, 0.2); }
+.home .VPFeature:nth-child(7):hover .icon { background: rgba(249, 115, 22, 0.22); box-shadow: 0 0 36px rgba(249, 115, 22, 0.3), 0 0 80px rgba(249, 115, 22, 0.08); }
+.home .VPFeature:nth-child(7):hover { box-shadow: 0 16px 64px rgba(249, 115, 22, 0.15), 0 0 100px rgba(249, 115, 22, 0.06); }
+.home .VPFeature:nth-child(7) .title { color: #c2410c; }
+.dark .home .VPFeature:nth-child(7) .title { color: #fb923c; }
+
+/* 8: Indigo */
+.home .VPFeature:nth-child(8) .VPFeature-card { background: rgba(99, 102, 241, 0.04); border-color: rgba(99, 102, 241, 0.12); }
+.home .VPFeature:nth-child(8) .VPFeature-card::before { background: linear-gradient(90deg, transparent, #6366f1, #818cf8, transparent) !important; opacity: 1 !important; }
+.home .VPFeature:nth-child(8) .icon i.fa-solid { color: #6366f1; }
+.home .VPFeature:nth-child(8) .icon { background: rgba(99, 102, 241, 0.12); border-color: rgba(99, 102, 241, 0.2); }
+.home .VPFeature:nth-child(8):hover .icon { background: rgba(99, 102, 241, 0.22); box-shadow: 0 0 36px rgba(99, 102, 241, 0.3), 0 0 80px rgba(99, 102, 241, 0.08); }
+.home .VPFeature:nth-child(8):hover { box-shadow: 0 16px 64px rgba(99, 102, 241, 0.15), 0 0 100px rgba(99, 102, 241, 0.06); }
+.home .VPFeature:nth-child(8) .title { color: #4338ca; }
+.dark .home .VPFeature:nth-child(8) .title { color: #818cf8; }
+
+/* 9: Teal */
+.home .VPFeature:nth-child(9) .VPFeature-card { background: rgba(20, 184, 166, 0.04); border-color: rgba(20, 184, 166, 0.12); }
+.home .VPFeature:nth-child(9) .VPFeature-card::before { background: linear-gradient(90deg, transparent, #14b8a6, #2dd4bf, transparent) !important; opacity: 1 !important; }
+.home .VPFeature:nth-child(9) .icon i.fa-solid { color: #14b8a6; }
+.home .VPFeature:nth-child(9) .icon { background: rgba(20, 184, 166, 0.12); border-color: rgba(20, 184, 166, 0.2); }
+.home .VPFeature:nth-child(9):hover .icon { background: rgba(20, 184, 166, 0.22); box-shadow: 0 0 36px rgba(20, 184, 166, 0.3), 0 0 80px rgba(20, 184, 166, 0.08); }
+.home .VPFeature:nth-child(9):hover { box-shadow: 0 16px 64px rgba(20, 184, 166, 0.15), 0 0 100px rgba(20, 184, 166, 0.06); }
+.home .VPFeature:nth-child(9) .title { color: #0f766e; }
+.dark .home .VPFeature:nth-child(9) .title { color: #2dd4bf; }
+
+/* ============================================
+   FEATURES — Scroll Reveal Animation
+   ============================================ */
+
+.home .VPFeature {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home .VPFeature.is-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered entrance — 9 cards, each 50ms apart */
+.home .VPFeature:nth-child(1) { transition-delay: 0.04s; }
+.home .VPFeature:nth-child(2) { transition-delay: 0.09s; }
+.home .VPFeature:nth-child(3) { transition-delay: 0.14s; }
+.home .VPFeature:nth-child(4) { transition-delay: 0.19s; }
+.home .VPFeature:nth-child(5) { transition-delay: 0.24s; }
+.home .VPFeature:nth-child(6) { transition-delay: 0.29s; }
+.home .VPFeature:nth-child(7) { transition-delay: 0.34s; }
+.home .VPFeature:nth-child(8) { transition-delay: 0.39s; }
+.home .VPFeature:nth-child(9) { transition-delay: 0.44s; }
+
+/* ============================================
+   HIGHLIGHTS SECTIONS (HomeHighlights.vue)
+   ============================================ */
+
+/* --- Section Container --- */
+.eco-highlights {
+  margin-top: 48px;
+}
+
+.eco-section {
+  position: relative;
+  padding: 100px 24px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.eco-section.eco-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Background pattern (from frontmatter bgImage) — visible but non-intrusive */
+.eco-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--eco-section-bg-light, none);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.dark .eco-section::before {
+  background-image: var(--eco-section-bg-dark, none);
+  opacity: 0.12;
+  mix-blend-mode: screen;
+}
+
+.eco-section--alt {
+  background-color: var(--vp-c-bg-soft);
+}
+
+/* Light mode: give non-alt sections a subtle tinted background */
+.eco-section:not(.eco-section--alt) {
+  background-color: rgba(var(--eco-accent-rgb), 0.015);
+}
+
+.dark .eco-section:not(.eco-section--alt) {
+  background-color: rgba(var(--eco-accent-rgb), 0.02);
+}
+
+.eco-section__container {
+  position: relative;
+  z-index: 1;
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+/* --- Section Header: holographic prominence --- */
+.eco-section__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.eco-section__icon {
+  margin-bottom: 24px;
+}
+
+.eco-section__icon img {
+  max-height: 90px;
+  width: auto;
+  display: inline-block;
+  opacity: 0.85;
+  transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 24px rgba(var(--eco-accent-rgb), 0.25));
+  animation: eco-icon-float 5s ease-in-out infinite;
+}
+
+@keyframes eco-icon-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.eco-section__icon:hover img {
+  opacity: 1;
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 40px rgba(var(--eco-accent-rgb), 0.4));
+}
+
+.eco-section__title {
+  font-size: var(--eco-section-title);
+  font-weight: 800;
+  color: var(--vp-c-text-1);
+  letter-spacing: 0.06em;
+  margin: 0 0 20px;
+  line-height: 1.3;
+}
+
+.eco-section__title-line {
+  width: 100px;
+  height: 3px;
+  margin: 0 auto;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #06b6d4, #8b5cf6, #f43f5e, #10b981);
+  background-size: 300% 100%;
+  animation: eco-line-prism 4s ease-in-out infinite;
+  box-shadow: 0 0 24px rgba(6, 182, 212, 0.2), 0 0 48px rgba(139, 92, 246, 0.1);
+}
+
+@keyframes eco-line-prism {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ============================================
+   SECTION HEADERS — Prismatic Per-Section Color
+   ============================================ */
+
+/* Section 1: "高定制、高可用、高扩展" — Cyan with Violet accent */
+.eco-section:nth-child(1) .eco-section__title {
+  color: #0e7490;
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.dark .eco-section:nth-child(1) .eco-section__title {
+  background: linear-gradient(135deg, #22d3ee, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.eco-section:nth-child(1) .eco-section__title-line {
+  background: linear-gradient(90deg, #06b6d4, #8b5cf6, #22d3ee);
+  background-size: 300% 100%;
+  animation: eco-line-prism 4s ease-in-out infinite;
+  box-shadow: 0 0 24px rgba(6, 182, 212, 0.3), 0 0 48px rgba(139, 92, 246, 0.15);
+}
+
+/* Section 2: "服务宗旨" — Violet with Rose accent */
+.eco-section:nth-child(2) .eco-section__title {
+  color: #6d28d9;
+  background: linear-gradient(135deg, #8b5cf6, #f43f5e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.dark .eco-section:nth-child(2) .eco-section__title {
+  background: linear-gradient(135deg, #a78bfa, #fb7185);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.eco-section:nth-child(2) .eco-section__title-line {
+  background: linear-gradient(90deg, #8b5cf6, #f43f5e, #a78bfa);
+  background-size: 300% 100%;
+  animation: eco-line-prism 4s ease-in-out infinite;
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.3), 0 0 48px rgba(244, 63, 94, 0.15);
+}
+
+/* Section 3: "企业未来发展前景" — Emerald with Blue accent */
+.eco-section:nth-child(3) .eco-section__title {
+  color: #047857;
+  background: linear-gradient(135deg, #10b981, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.dark .eco-section:nth-child(3) .eco-section__title {
+  background: linear-gradient(135deg, #34d399, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.eco-section:nth-child(3) .eco-section__title-line {
+  background: linear-gradient(90deg, #10b981, #3b82f6, #34d399);
+  background-size: 300% 100%;
+  animation: eco-line-prism 4s ease-in-out infinite;
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.3), 0 0 48px rgba(59, 130, 246, 0.15);
+}
+
+/* ============================================
+   Highlights List (timeline-style)
+   ============================================ */
+
+.eco-highlights-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.eco-highlight-item {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  min-height: 60px;
+}
+
+.eco-highlight-item__indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 24px;
+  padding-top: 8px;
+}
+
+.eco-highlight-item__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--eco-accent);
+  box-shadow: 0 0 16px var(--eco-glow), 0 0 4px rgba(var(--eco-accent-rgb), 0.6);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: eco-dot-pulse 3s ease-in-out infinite;
+}
+
+@keyframes eco-dot-pulse {
+  0%, 100% { box-shadow: 0 0 16px var(--eco-glow), 0 0 4px rgba(var(--eco-accent-rgb), 0.6); }
+  50% { box-shadow: 0 0 24px var(--eco-glow-strong), 0 0 8px rgba(var(--eco-accent-rgb), 0.8), 0 0 48px rgba(var(--eco-accent-rgb), 0.15); }
+}
+
+.eco-highlight-item:hover .eco-highlight-item__dot {
+  transform: scale(1.4);
+  box-shadow: 0 0 28px var(--eco-glow-strong), 0 0 8px rgba(var(--eco-accent-rgb), 0.8), 0 0 60px rgba(var(--eco-accent-rgb), 0.2);
+}
+
+.eco-highlight-item__line {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--eco-accent-rgb), 0.25),
+    rgba(var(--eco-accent-rgb), 0.03)
+  );
+  margin-top: 6px;
+}
+
+.eco-highlight-item:last-child .eco-highlight-item__line {
+  display: none;
+}
+
+.eco-highlight-item__content {
+  padding-bottom: 32px;
+  flex: 1;
+}
+
+.eco-highlight-item__text {
+  font-size: 1rem;
+  color: var(--vp-c-text-1);
+  line-height: 1.85;
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 12px;
+  background: rgba(var(--eco-accent-rgb), 0.02);
+  border: 1px solid rgba(var(--eco-accent-rgb), 0.06);
+  transition: all var(--eco-speed) ease;
+  letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle prismatic shimmer on hover */
+.eco-highlight-item__text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(var(--eco-accent-rgb), 0.04), transparent);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.eco-highlight-item__text:hover {
+  background: rgba(var(--eco-accent-rgb), 0.06);
+  border-color: rgba(var(--eco-accent-rgb), 0.22);
+  box-shadow:
+    0 6px 28px rgba(var(--eco-accent-rgb), 0.08),
+    0 0 40px rgba(var(--eco-accent-rgb), 0.03),
+    inset 0 0 0 1px rgba(var(--eco-accent-rgb), 0.06);
+  transform: translateX(6px);
+}
+
+.eco-highlight-item__text:hover::after {
+  left: 120%;
+}
+
+/* Tagline item (last highlight) — stronger emphasis */
+.eco-highlight-item--tagline .eco-highlight-item__text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--eco-accent);
+  background: rgba(var(--eco-accent-rgb), 0.05);
+  border-color: rgba(var(--eco-accent-rgb), 0.15);
+  letter-spacing: 0.14em;
+}
+
+.eco-highlight-item--tagline .eco-highlight-item__dot {
+  width: 14px;
+  height: 14px;
+  box-shadow: 0 0 24px var(--eco-glow-strong), 0 0 6px rgba(var(--eco-accent-rgb), 0.8);
+}
+
+/* ============================================
+   Features Grid (in Highlights sections)
+   ============================================ */
+
+.eco-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .eco-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .eco-features-grid {
+    grid-template-columns: 1fr;
+  }
+  .eco-section {
+    padding: 64px 20px;
+  }
+}
+
+.eco-feature-card {
+  padding: 32px 28px;
+  border-radius: var(--eco-radius-lg);
+  border: 1px solid rgba(var(--eco-accent-rgb), 0.07);
+  background: rgba(var(--eco-accent-rgb), 0.015);
+  text-align: left;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Prismatic animated gradient top border */
+.eco-feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #06b6d4 15%,
+    #8b5cf6 30%,
+    #f43f5e 50%,
+    #fbbf24 65%,
+    #10b981 80%,
+    #3b82f6 95%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity var(--eco-speed) ease;
+}
+
+/* Multi-color corner glow */
+.eco-feature-card::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 120px;
+  height: 120px;
+  background:
+    radial-gradient(circle at top right, rgba(6, 182, 212, 0.1), transparent 50%),
+    radial-gradient(circle at top right, rgba(139, 92, 246, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity var(--eco-speed) ease;
+  pointer-events: none;
+}
+
+.eco-feature-card:hover {
+  border-color: rgba(var(--eco-accent-rgb), 0.3);
+  box-shadow:
+    0 16px 64px rgba(var(--eco-accent-rgb), 0.12),
+    0 0 100px rgba(6, 182, 212, 0.04),
+    0 0 100px rgba(139, 92, 246, 0.03),
+    inset 0 1px 0 rgba(var(--eco-accent-rgb), 0.08);
+  transform: translateY(-8px);
+  background: rgba(var(--eco-accent-rgb), 0.04);
+}
+
+.eco-feature-card:hover::before {
+  opacity: 1;
+  animation: eco-border-shimmer 2s ease-in-out infinite;
+}
+
+.eco-feature-card:hover::after {
+  opacity: 1;
+}
+
+.eco-feature-card__icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--eco-accent-rgb), 0.06);
+  border: 1px solid rgba(var(--eco-accent-rgb), 0.08);
+  border-radius: 14px;
+  margin-bottom: 20px;
+  transition: all var(--eco-speed) ease;
+  color: var(--eco-accent);
+  font-size: 22px;
+}
+
+.eco-feature-card:hover .eco-feature-card__icon {
+  background: rgba(var(--eco-accent-rgb), 0.14);
+  border-color: rgba(var(--eco-accent-rgb), 0.2);
+  box-shadow: 0 0 36px rgba(var(--eco-accent-rgb), 0.2), 0 0 80px rgba(var(--eco-accent-rgb), 0.06);
+  transform: scale(1.08);
+  color: var(--eco-accent-light);
+  filter: drop-shadow(0 0 6px rgba(var(--eco-accent-rgb), 0.4));
+}
+
+.eco-feature-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+  margin: 0 0 12px;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+.eco-feature-card__details {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--vp-c-text-2);
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+}
+
+/* ============================================
+   HIGHLIGHTS CARDS — Vibrant Per-Card Colors
+   ============================================ */
+
+/* 1: Violet */
+.eco-feature-card:nth-child(1) .eco-feature-card__icon { color: #8b5cf6; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.15); }
+.eco-feature-card:nth-child(1):hover .eco-feature-card__icon { background: rgba(139, 92, 246, 0.18); box-shadow: 0 0 28px rgba(139, 92, 246, 0.2); color: #a78bfa; }
+.eco-feature-card:nth-child(1) .eco-feature-card__title { color: #6d28d9; }
+.dark .eco-feature-card:nth-child(1) .eco-feature-card__title { color: #a78bfa; }
+
+/* 2: Rose */
+.eco-feature-card:nth-child(2) .eco-feature-card__icon { color: #f43f5e; background: rgba(244, 63, 94, 0.1); border-color: rgba(244, 63, 94, 0.15); }
+.eco-feature-card:nth-child(2):hover .eco-feature-card__icon { background: rgba(244, 63, 94, 0.18); box-shadow: 0 0 28px rgba(244, 63, 94, 0.2); color: #fb7185; }
+.eco-feature-card:nth-child(2) .eco-feature-card__title { color: #be123c; }
+.dark .eco-feature-card:nth-child(2) .eco-feature-card__title { color: #fb7185; }
+
+/* 3: Amber */
+.eco-feature-card:nth-child(3) .eco-feature-card__icon { color: #f59e0b; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.15); }
+.eco-feature-card:nth-child(3):hover .eco-feature-card__icon { background: rgba(245, 158, 11, 0.18); box-shadow: 0 0 28px rgba(245, 158, 11, 0.2); color: #fbbf24; }
+.eco-feature-card:nth-child(3) .eco-feature-card__title { color: #b45309; }
+.dark .eco-feature-card:nth-child(3) .eco-feature-card__title { color: #fbbf24; }
+
+/* 4: Emerald */
+.eco-feature-card:nth-child(4) .eco-feature-card__icon { color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.15); }
+.eco-feature-card:nth-child(4):hover .eco-feature-card__icon { background: rgba(16, 185, 129, 0.18); box-shadow: 0 0 28px rgba(16, 185, 129, 0.2); color: #34d399; }
+.eco-feature-card:nth-child(4) .eco-feature-card__title { color: #047857; }
+.dark .eco-feature-card:nth-child(4) .eco-feature-card__title { color: #34d399; }
+
+/* 5: Blue */
+.eco-feature-card:nth-child(5) .eco-feature-card__icon { color: #3b82f6; background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.15); }
+.eco-feature-card:nth-child(5):hover .eco-feature-card__icon { background: rgba(59, 130, 246, 0.18); box-shadow: 0 0 28px rgba(59, 130, 246, 0.2); color: #60a5fa; }
+.eco-feature-card:nth-child(5) .eco-feature-card__title { color: #1d4ed8; }
+.dark .eco-feature-card:nth-child(5) .eco-feature-card__title { color: #60a5fa; }
+
+/* 6: Cyan */
+.eco-feature-card:nth-child(6) .eco-feature-card__icon { color: #06b6d4; background: rgba(6, 182, 212, 0.1); border-color: rgba(6, 182, 212, 0.15); }
+.eco-feature-card:nth-child(6):hover .eco-feature-card__icon { background: rgba(6, 182, 212, 0.18); box-shadow: 0 0 28px rgba(6, 182, 212, 0.2); color: #22d3ee; }
+.eco-feature-card:nth-child(6) .eco-feature-card__title { color: #0e7490; }
+.dark .eco-feature-card:nth-child(6) .eco-feature-card__title { color: #22d3ee; }
+
+/* ============================================
+   DECORATIVE ELEMENTS — Prismatic Atmosphere
+   ============================================ */
+
+/* Subtle noise texture overlay on hero for depth */
+.home .VPHero > .container > .main,
+.home .hero > .container > .main {
+  position: relative;
+}
+
+/* Highlight sections: prismatic divider between sections */
+.eco-section + .eco-section {
+  border-top: 1px solid transparent;
+  background-image: linear-gradient(var(--vp-c-bg-soft), var(--vp-c-bg-soft)),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.15), rgba(139, 92, 246, 0.15), rgba(244, 63, 94, 0.1), rgba(16, 185, 129, 0.15));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* ============================================
+   LIGHT MODE ENHANCEMENTS
+   ============================================ */
+
+/* Light mode: timeline items more visible */
+.eco-highlight-item__text {
+  background: rgba(var(--eco-accent-rgb), 0.03);
+  border-color: rgba(var(--eco-accent-rgb), 0.08);
+}
+
+.eco-highlight-item__text:hover {
+  background: rgba(var(--eco-accent-rgb), 0.06);
+  border-color: rgba(var(--eco-accent-rgb), 0.22);
+}
+
+/* ============================================
+   DARK MODE ENHANCEMENTS — Neon Glow
+   ============================================ */
+
+.dark .eco-feature-card,
+.dark .eco-highlight-item__text {
+  background: rgba(var(--eco-accent-rgb), 0.03);
+  border-color: rgba(var(--eco-accent-rgb), 0.08);
+}
+
+.dark .eco-feature-card:hover {
+  background: rgba(var(--eco-accent-rgb), 0.06);
+  border-color: rgba(var(--eco-accent-rgb), 0.3);
+  box-shadow:
+    0 16px 64px rgba(var(--eco-accent-rgb), 0.15),
+    0 0 120px rgba(6, 182, 212, 0.06),
+    0 0 120px rgba(139, 92, 246, 0.04);
+}
+
+.dark .eco-highlight-item__text:hover {
+  background: rgba(var(--eco-accent-rgb), 0.07);
+  border-color: rgba(var(--eco-accent-rgb), 0.25);
+  box-shadow: 0 6px 32px rgba(var(--eco-accent-rgb), 0.1), 0 0 60px rgba(var(--eco-accent-rgb), 0.04);
+}
+
+.dark .eco-section__title {
+  text-shadow: 0 0 40px rgba(var(--eco-accent-rgb), 0.2);
+}
+
+/* Dark mode: enhanced hero name glow */
+.dark .home .VPHero .name,
+.dark .home .hero h1,
+.dark .home .hero .name {
+  filter: drop-shadow(0 0 48px var(--eco-glow)) drop-shadow(0 0 100px rgba(var(--eco-accent-rgb), 0.25));
+}
+
+/* Dark mode: restore light text colors for dark hero background */
+.dark .home .VPHero .text,
+.dark .home .hero .text {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.dark .home .VPHero .tagline,
+.dark .home .hero .tagline {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* Dark mode: alt button dark glass style */
+.dark .home .VPHero .actions .VPButton.alt,
+.dark .home .hero .actions .VPButton.alt {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.dark .home .VPHero .actions .VPButton.alt:hover,
+.dark .home .hero .actions .VPButton.alt:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+    linear-gradient(135deg, #06b6d4, #8b5cf6, #f43f5e, #10b981) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 4px 30px rgba(139, 92, 246, 0.15),
+    0 0 80px rgba(6, 182, 212, 0.08) !important;
+}
+
+/* Dark mode: brand button stronger glow */
+.dark .home .VPHero .actions .VPButton.brand,
+.dark .home .hero .actions .VPButton.brand {
+  box-shadow:
+    0 4px 24px var(--eco-glow-subtle),
+    0 0 60px rgba(var(--eco-accent-rgb), 0.08) !important;
+}
+
+/* Dark mode: hero image stronger shadow */
+.dark .home .VPHero .image img,
+.dark .home .hero .image img {
+  filter: drop-shadow(0 16px 60px rgba(0, 0, 0, 0.5));
+}
+
+/* Dark mode: aurora darker background colors */
+.dark .home .VPHero .container::before,
+.dark .home .hero .container::before {
+  background:
+    radial-gradient(ellipse 600px 400px at 30% 40%, rgba(6, 182, 212, 0.08), transparent),
+    radial-gradient(ellipse 500px 350px at 70% 50%, rgba(139, 92, 246, 0.07), transparent),
+    radial-gradient(ellipse 400px 300px at 50% 60%, rgba(16, 185, 129, 0.05), transparent),
+    radial-gradient(ellipse 700px 500px at 50% 50%, rgba(var(--eco-accent-rgb), 0.04), transparent);
+}
+
+/* Dark mode: enhanced feature card border glow */
+.dark .home .VPFeature-card:hover {
+  box-shadow:
+    0 16px 64px rgba(var(--eco-accent-rgb), 0.15),
+    0 0 120px rgba(6, 182, 212, 0.06),
+    0 0 120px rgba(139, 92, 246, 0.04),
+    inset 0 1px 0 rgba(var(--eco-accent-rgb), 0.12);
+}
+
+/* Dark mode: enhanced dot glow */
+.dark .eco-highlight-item__dot {
+  animation: eco-dot-pulse-dark 3s ease-in-out infinite;
+}
+
+@keyframes eco-dot-pulse-dark {
+  0%, 100% { box-shadow: 0 0 16px var(--eco-glow), 0 0 4px rgba(var(--eco-accent-rgb), 0.6); }
+  50% { box-shadow: 0 0 28px var(--eco-glow-strong), 0 0 10px rgba(var(--eco-accent-rgb), 0.9), 0 0 60px rgba(var(--eco-accent-rgb), 0.2); }
+}
+
+/* Dark mode: neon accent on section title lines */
+.dark .eco-section__title-line {
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.3), 0 0 60px rgba(139, 92, 246, 0.15), 0 0 90px rgba(16, 185, 129, 0.08);
+}
+
+/* ============================================
+   EXISTING PRESERVED STYLES
+   ============================================ */
+
+/* Homepage: hide default VitePress footer */
+.home .VPFooter {
+  display: none !important;
+}
+
+/* Code group active tab */
+.vp-code-group .tabs {
+  border-radius: 0;
+  gap: 2px;
+}
+.vp-code-group .tabs label {
+  border-radius: 0;
+  color: var(--vp-c-text-2);
+  font-weight: 500;
+  padding: 8px 16px;
+}
+.vp-code-group .tabs label.active {
+  color: red;
+  background: #ffe7e7;
+  font-weight: 700;
+  border-top: 4px solid red;
+}
+
+/* API reference table */
+.api-ref-table {
+  overflow-x: auto;
+}
+.api-ref-table table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+.api-ref-table table th,
+.api-ref-table table td {
+  padding: 6px 10px;
+  vertical-align: top;
+  line-height: 1.5;
+}
+.api-ref-table table th:nth-child(1),
+.api-ref-table table td:nth-child(1) {
+  width: 25%;
+  word-break: break-word;
+}
+.api-ref-table table th:nth-child(2),
+.api-ref-table table td:nth-child(2) {
+  width: 20%;
+  word-break: break-word;
+}
+.api-ref-table table th:nth-child(3),
+.api-ref-table table td:nth-child(3) {
+  width: 45%;
+  word-break: break-all;
+}
+.api-ref-table table th:nth-child(4),
+.api-ref-table table td:nth-child(4) {
+  width: 10%;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Frequency star colors (5-star system) */
+.api-ref-table .freq-5 {
+  color: #e74c3c;
+  font-weight: bold;
+}
+.api-ref-table .freq-4 {
+  color: #f5a623;
+  font-weight: bold;
+}
+.api-ref-table .freq-3 {
+  color: #2ecc71;
+}
+.api-ref-table .freq-2 {
+  color: #9b59b6;
+}
+.api-ref-table .freq-1 {
+  color: #999;
+}
+
+/* Frequency star colors (3-star system, legacy compat) */
+.api-ref-table .freq-high {
+  color: #f5a623;
+}
+.api-ref-table .freq-mid {
+  color: #9b59b6;
+}
+.api-ref-table .freq-low {
+  color: #999;
+}
+
+/* Row alternating background */
+.api-ref-table tbody tr:nth-child(even) {
+  background-color: var(--vp-c-bg-soft);
+}
+/* Row hover highlight */
+.api-ref-table tbody tr:hover {
+  background-color: var(--vp-c-brand-soft);
+}

@@ -1,0 +1,14 @@
+/* RTL 样式 — 保留以备将来启用 RTL 语言时使用 */
+
+/* 导航栏反转 */
+[dir="rtl"] .VPSidebar {
+  right: 0;
+  left: auto;
+}
+
+/* 代码块保持 LTR 方向 */
+[dir="rtl"] pre,
+[dir="rtl"] code {
+  direction: ltr;
+  text-align: left;
+}

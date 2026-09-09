@@ -1,0 +1,137 @@
+/* Mermaid 图表 — 暗黑模式节点颜色适配 */
+/* 策略：浅色填充 → 对应深色填充，所有节点文字统一白色 */
+
+/* ===== 节点继承链图（Flat UI 色系）===== */
+html.dark .mermaid .node rect[fill="#FFE0B2"],
+html.dark .mermaid .node polygon[fill="#FFE0B2"] {
+  fill: #4a3000;
+  stroke: #3d2700;
+}
+html.dark .mermaid .node rect[fill="#BBDEFB"],
+html.dark .mermaid .node polygon[fill="#BBDEFB"] {
+  fill: #0d2d4a;
+  stroke: #0a2238;
+}
+html.dark .mermaid .node rect[fill="#d6eaf8"],
+html.dark .mermaid .node polygon[fill="#d6eaf8"] {
+  fill: #1a3a5c;
+  stroke: #154360;
+}
+html.dark .mermaid .node rect[fill="#FF9800"],
+html.dark .mermaid .node polygon[fill="#FF9800"] {
+  fill: #5c3d00;
+  stroke: #4a3100;
+}
+html.dark .mermaid .node rect[fill="#3498db"],
+html.dark .mermaid .node polygon[fill="#3498db"] {
+  fill: #1a4a6e;
+  stroke: #133d5c;
+}
+html.dark .mermaid .node rect[fill="#2ecc71"],
+html.dark .mermaid .node polygon[fill="#2ecc71"] {
+  fill: #1a5c34;
+  stroke: #134a2a;
+}
+html.dark .mermaid .node rect[fill="#4CAF50"],
+html.dark .mermaid .node polygon[fill="#4CAF50"] {
+  fill: #1b5e20;
+  stroke: #14491a;
+}
+html.dark .mermaid .node rect[fill="#e74c3c"],
+html.dark .mermaid .node polygon[fill="#e74c3c"] {
+  fill: #7b1a1a;
+  stroke: #5c1212;
+}
+html.dark .mermaid .node rect[fill="#607D8B"],
+html.dark .mermaid .node polygon[fill="#607D8B"] {
+  fill: #2c3e47;
+  stroke: #1e2d34;
+}
+html.dark .mermaid .node rect[fill="#455A64"],
+html.dark .mermaid .node polygon[fill="#455A64"] {
+  fill: #263238;
+  stroke: #1b2529;
+}
+
+/* ===== 平台模块架构图（Tailwind 色系）===== */
+html.dark .mermaid .node rect[fill="#3B82F6"],
+html.dark .mermaid .node polygon[fill="#3B82F6"] {
+  fill: #1e3a5f;
+  stroke: #162d4a;
+}
+html.dark .mermaid .node rect[fill="#10B981"],
+html.dark .mermaid .node polygon[fill="#10B981"] {
+  fill: #064e3b;
+  stroke: #053f30;
+}
+html.dark .mermaid .node rect[fill="#F59E0B"],
+html.dark .mermaid .node polygon[fill="#F59E0B"] {
+  fill: #5c3d00;
+  stroke: #4a3100;
+}
+html.dark .mermaid .node rect[fill="#8B5CF6"],
+html.dark .mermaid .node polygon[fill="#8B5CF6"] {
+  fill: #3b1f7a;
+  stroke: #2e1860;
+}
+html.dark .mermaid .node rect[fill="#EF4444"],
+html.dark .mermaid .node polygon[fill="#EF4444"] {
+  fill: #7f1d1d;
+  stroke: #641616;
+}
+html.dark .mermaid .node rect[fill="#6366F1"],
+html.dark .mermaid .node polygon[fill="#6366F1"] {
+  fill: #312e81;
+  stroke: #272468;
+}
+html.dark .mermaid .node rect[fill="#2196F3"],
+html.dark .mermaid .node polygon[fill="#2196F3"] {
+  fill: #0d47a1;
+  stroke: #0a3a82;
+}
+html.dark .mermaid .node rect[fill="#42b883"],
+html.dark .mermaid .node polygon[fill="#42b883"] {
+  fill: #1a5c3a;
+  stroke: #134a2e;
+}
+html.dark .mermaid .node rect[fill="#bbf"],
+html.dark .mermaid .node polygon[fill="#bbf"] {
+  fill: #1a2a4a;
+  stroke: #142038;
+}
+
+/* 核心概念图专用色 */
+html.dark .mermaid .node rect[fill="#478061"],
+html.dark .mermaid .node polygon[fill="#478061"] {
+  fill: #1e3a2a;
+  stroke: #152e22;
+}
+html.dark .mermaid .node rect[fill="#5b7fb5"],
+html.dark .mermaid .node polygon[fill="#5b7fb5"] {
+  fill: #2a3f5a;
+  stroke: #1e3248;
+}
+
+/* ===== 通用文字 & 边框适配 ===== */
+html.dark .mermaid .node text {
+  fill: #e8e8e8 !important;
+}
+html.dark .mermaid .node rect,
+html.dark .mermaid .node polygon {
+  stroke-width: 1px;
+}
+html.dark .mermaid .cluster-label text {
+  fill: #bbb !important;
+}
+html.dark .mermaid .cluster rect {
+  stroke: #444 !important;
+}
+html.dark .mermaid .edgeLabel text {
+  fill: #aaa !important;
+}
+html.dark .mermaid .edgePath path {
+  stroke: #555 !important;
+}
+html.dark .mermaid .edgePath path.dashed {
+  stroke-dasharray: 5 3 !important;
+}

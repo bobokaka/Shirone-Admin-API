@@ -1,0 +1,29 @@
+# Dependencies
+/node_modules/
+
+# Build output
+**/dist/
+
+# IDE
+/.idea/
+
+# Cache
+**/.cache/
+**/.temp/
+
+# OS files
+nul
+__pycache__/
+
+# VitePress
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+
+# Python cache
+*.pyc
+
+# Debug/test artifacts
+debug-*.png
+test-*.mjs
+test-results/
+.vitepress/cache/

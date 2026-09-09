@@ -1,0 +1,35 @@
+{
+  "name": "shirone-admin-api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "基于 VitePress 2.0 的多语言文档站模板",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "node --max-old-space-size=20480 ./node_modules/vitepress/bin/vitepress.js build docs",
+    "preview": "vitepress preview docs"
+  },
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@10.28.2",
+  "devDependencies": {
+    "@braintree/sanitize-url": "^7.1.2",
+    "@types/node": "^25.6.0",
+    "cytoscape": "^3.33.2",
+    "cytoscape-cose-bilkent": "^4.1.0",
+    "dayjs": "^1.11.20",
+    "debug": "^4.4.3",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-mark": "^4.0.0",
+    "markdown-it-mathjax3": "^4.3.2",
+    "markdown-it-sub": "^2.0.0",
+    "markdown-it-sup": "^2.0.0",
+    "playwright": "^1.59.1",
+    "tsx": "^4.21.0",
+    "vitepress": "2.0.0-alpha.17",
+    "vitepress-plugin-giscus": "^0.1.0",
+    "vitepress-plugin-mermaid": "^2.0.17",
+    "vitepress-plugin-rss": "^0.4.3"
+  },
+  "dependencies": {
+    "vue": "^3.5.33"
+  }
+}
