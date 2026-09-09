@@ -121,7 +121,10 @@ export default withMermaid(defineConfig({
     root: {
       lang: "zh-CN",
       themeConfig: {
-        nav: [{ text: "首页", link: "/zh/" }],
+        nav: [
+          { text: "首页", link: "/zh/" },
+          { text: "指南", link: "/zh/guide/" },
+        ],
       },
     },
     zh: { ...mergeSidebar(zh, "/zh/") },
@@ -152,12 +155,12 @@ export default withMermaid(defineConfig({
   vite: {
     plugins: [
       publicAssetsPlugin(),
-      // Giscus 评论：需在 https://giscus.app 生成自己仓库的配置后替换下列参数
+      // Giscus 评论：托管在主仓库 Discussions 的 Announcements 分类
       giscusPlugin({
-        repo: "bobokaka/Shirone-Admin-API-feedback",
-        repoId: "",
+        repo: "bobokaka/Shirone-Admin-API",
+        repoId: "R_kgDOUTjX0g",
         category: "Announcements",
-        categoryId: "",
+        categoryId: "DIC_kwDOUTjX0s4DFPnF",
         mapping: "pathname",
         inputPosition: "top",
         loading: "lazy",
