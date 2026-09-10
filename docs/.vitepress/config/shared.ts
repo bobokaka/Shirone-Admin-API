@@ -1,7 +1,7 @@
 import type { HeadConfig } from "vitepress";
 
-// 站点域名：用于 sitemap 与 RSS，部署时替换为实际域名
-export const hostname = "https://example.com";
+// 站点域名：用于 sitemap 与 RSS
+export const hostname = "https://shironeadmin.evocosmos.com";
 
 export const head: HeadConfig[] = [
   ["meta", { name: "keywords", content: "VitePress,文档,文档站,多语言,i18n,Markdown,Mermaid,技术文档,API 文档" }],
