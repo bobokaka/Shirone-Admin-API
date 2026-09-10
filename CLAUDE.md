@@ -36,7 +36,7 @@ pnpm run preview    # 预览构建结果
 
 ### 构建资源警告（重要）
 
-- **本项目完整构建需要约 20GB 内存**，普通电脑极有可能在构建过程中因内存耗尽而卡死。
+- **本项目完整构建需要约 16GB 内存**，普通电脑极有可能在构建过程中因内存耗尽而卡死。
 - **开发调试请使用 `pnpm run dev`**：开发服务器增量编译，内存占用可控。
 - **仅在确认内容无误并准备部署时执行构建**，且确保运行机器有充足内存（建议 32GB 以上）。
 
@@ -124,7 +124,7 @@ Shirone-Admin-API/
 
 ### 5. 自动部署（GitHub Actions）
 
-推送到 `master` 自动触发 `.github/workflows/deploy.yml`：构建（runner 16GB 内存 + 16GB swap，完整构建约需 20GB）后 rsync 镜像 `docs/.vitepress/dist/` 到宝塔服务器 `/www/wwwroot/shironeadmin.evocosmos.com/public/shironeadmin`。所需 Secrets（Settings -> Secrets and variables -> Actions）：`DEPLOY_HOST` / `DEPLOY_USER` / `DEPLOY_SSH_KEY` / `DEPLOY_DIR`，可选 `DEPLOY_PORT`（默认 22）。Secrets 未配置时 workflow 会在构建前快速失败并提示。
+推送到 `master` 自动触发 `.github/workflows/deploy.yml`：构建（堆上限 16GB，runner 16GB 内存 + 16GB swap 兜底）后 rsync 镜像 `docs/.vitepress/dist/` 到宝塔服务器 `/www/wwwroot/shironeadmin.evocosmos.com/public/shironeadmin`。所需 Secrets（Settings -> Secrets and variables -> Actions）：`DEPLOY_HOST` / `DEPLOY_USER` / `DEPLOY_SSH_KEY` / `DEPLOY_DIR`，可选 `DEPLOY_PORT`（默认 22）。Secrets 未配置时 workflow 会在构建前快速失败并提示。
 
 ## Mermaid 图表点击跳转规范
 

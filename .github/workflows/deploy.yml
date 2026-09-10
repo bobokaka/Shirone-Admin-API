@@ -3,8 +3,8 @@
 # 参照同工作区 Shirone 仓的 deploy.yml 裁剪而来：本仓为单仓文档站，
 # 无内容仓派发环节，push 即构建。
 #
-# 完整构建约需 20GB 内存（build 脚本 --max-old-space-size=20480），
-# 而 GitHub 标准 runner 仅 16GB，因此构建前在 /mnt 附加 16GB swap 补足。
+# build 脚本堆上限 16GB（--max-old-space-size=16384），与 GitHub 标准
+# runner 物理内存相当（系统占用后可用不足 16GB），构建前在 /mnt 附加 16GB swap 兜底。
 #
 # 所需 Secrets（Settings -> Secrets and variables -> Actions）：
 #   DEPLOY_HOST / DEPLOY_USER / DEPLOY_SSH_KEY —— 服务器 SSH 凭据（专用部署公钥）
@@ -72,8 +72,8 @@ jobs:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
-      # V8 堆上限 20480MB 高于 runner 物理内存，用 /mnt（剩余磁盘空间最大）
-      # 上的 swap 文件补足，避免构建中后期 OOM 被内核杀死。
+      # V8 堆上限 16384MB 贴近 runner 物理内存（系统占用后可用不足 16GB），
+      # 用 /mnt（剩余磁盘空间最大）上的 swap 文件兜底，避免构建中后期 OOM 被内核杀死。
       - name: Add swap space
         run: |
           set -euo pipefail
