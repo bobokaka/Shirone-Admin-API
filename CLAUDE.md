@@ -122,6 +122,10 @@ Shirone-Admin-API/
 - Giscus 评论需在 https://giscus.app 生成自己仓库的配置后替换 `config/index.ts` 中的参数
 - 构建产物在 `docs/.vitepress/dist/`，部署域名由实际托管环境决定
 
+### 5. 自动部署（GitHub Actions）
+
+推送到 `master` 自动触发 `.github/workflows/deploy.yml`：构建（runner 16GB 内存 + 16GB swap，完整构建约需 20GB）后 rsync 镜像 `docs/.vitepress/dist/` 到宝塔服务器 `/www/wwwroot/shironeadmin.evocosmos.com/public/shironeadmin`。所需 Secrets（Settings -> Secrets and variables -> Actions）：`DEPLOY_HOST` / `DEPLOY_USER` / `DEPLOY_SSH_KEY` / `DEPLOY_DIR`，可选 `DEPLOY_PORT`（默认 22）。Secrets 未配置时 workflow 会在构建前快速失败并提示。
+
 ## Mermaid 图表点击跳转规范
 
 所有 Mermaid 图表中，节点如果需要支持点击跳转到**其他页面/章节**，必须使用以下写法，强制在新标签页打开：
