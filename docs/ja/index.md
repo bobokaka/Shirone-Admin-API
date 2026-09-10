@@ -17,24 +17,38 @@ hero:
       link: https://github.com/bobokaka/Shirone-Admin
 
 features:
+  - title: ダッシュボードと実サイトプレビュー
+    icon: '<i class="fa-solid fa-gauge-high"></i>'
+    details: 未公開の変更とコンテンツ統計を一目で把握。本物のブログを内蔵したライブプレビュー
+    link: /ja/guide/dashboard
   - title: 記事編集
-    icon: '<i class="fa-solid fa-file-pen"></i>'
-    details: Markdown ソースモードエディター。Shirone テーマ独自の拡張スニペット（三重コロンコンテナ、file-tree、コードタブなど）を内蔵し、画像も本文と一緒に管理
+    icon: '<i class="fa-solid fa-pen-nib"></i>'
+    details: Markdown ソースモードエディター。三重コロンコンテナ、file-tree などテーマ拡張スニペットを内蔵し、画像も本文と一緒に管理
+    link: /ja/guide/post-editor
   - title: モーメンツ
-    icon: '<i class="fa-solid fa-comment-dots"></i>'
-    details: ひとこと投稿の公開と管理。画像はテーマのサムネイルパイプラインへ自動アーカイブ
+    icon: '<i class="fa-solid fa-messages"></i>'
+    details: 気分、場所、タグ、9 枚のグリッド写真。画像はテーマのサムネイルパイプラインへ自動アーカイブ
+    link: /ja/guide/moments
+  - title: サイト設定
+    icon: '<i class="fa-solid fa-palette"></i>'
+    details: 基本情報、ナビゲーション、フッター、テーマ外観、バナー壁紙をすべてビジュアル編集
+    link: /ja/guide/settings
   - title: 構造化データ
-    icon: '<i class="fa-solid fa-table-list"></i>'
-    details: プロジェクト、スキル、タイムライン、デバイス、アニメ、ナビゲーションなどの data/*.ts をビジュアル編集
+    icon: '<i class="fa-solid fa-diagram-project"></i>'
+    details: プロジェクト、スキル、タイムライン、デバイス、アニメ、コンパス、プレイリスト、リンクなどの data/*.ts をビジュアル編集、検索取り込み対応
+    link: /ja/guide/data
   - title: AI アシスタント
-    icon: '<i class="fa-solid fa-robot"></i>'
-    details: 複数プロバイダーの切替に対応。取り込み記事のリライト、コミットメッセージ生成、タイムライン起草を支援
+    icon: '<i class="fa-solid fa-wand-magic-sparkles"></i>'
+    details: 複数プロバイダーを自由に切替。コンテンツのリライト、コミットメッセージ生成、タイムライン起草を各ページから利用可能
+    link: /ja/guide/ai
   - title: コンテンツ取り込み
-    icon: '<i class="fa-solid fa-file-import"></i>'
-    details: 簡書エクスポート、アニメ（Bangumi API）、音楽をワンストップで取り込み
+    icon: '<i class="fa-solid fa-cloud-arrow-down"></i>'
+    details: 簡書エクスポートの一括移行、単票の貼り付けで即時変換、アニメと音楽をワンストップで取り込み
+    link: /ja/guide/import
   - title: ワンクリック公開
-    icon: '<i class="fa-solid fa-rocket"></i>'
-    details: 2 リポジトリへの git コミットとプッシュ。公開前にテーマ検証を自動実行
+    icon: '<i class="fa-solid fa-rocket-launch"></i>'
+    details: 2 リポジトリへの git コミットとプッシュ。公開前にテーマ検証を自動実行し、失敗すればブロック
+    link: /ja/guide/publish
 
 highlights:
   - header: Shirone-Admin を選ぶ理由
@@ -43,16 +57,16 @@ highlights:
     bgImageDark: /assets/image/home/bg/1-dark.svg
     features:
       - title: ローカルファースト
-        icon: fa-house-laptop
+        icon: fa-hard-drive
         details: データはすべて自分のコンテンツリポジトリに保存。サーバー展開不要の単体ツール
       - title: 実サイトプレビュー
-        icon: fa-eye
+        icon: fa-window-maximize
         details: テーマリポジトリの astro dev を内蔵。表示されるのはまさに公開される本物のサイト
       - title: 3 リポジトリ連携
         icon: fa-cubes
         details: Shirone テーマリポジトリ、Shirone-Content コンテンツリポジトリと役割分担し、変更の由来を明確に追跡
       - title: 安全な公開
-        icon: fa-shield-halved
+        icon: fa-clipboard-check
         details: 公開前にテーマ検証を自動実行し、失敗すれば公開をブロック
 
   - header: 3 分で起動

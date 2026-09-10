@@ -190,9 +190,9 @@ onBeforeUnmount(() => {
               <div v-if="feat.icon" class="eco-feature-card__icon">
                 <i
                   :class="
-                    feat.icon.startsWith('fa-')
+                    feat.icon.includes(' ')
                       ? feat.icon
-                      : 'fa-solid fa-' + feat.icon
+                      : 'fa-solid fa-' + feat.icon.replace(/^fa-/, '')
                   "
                 ></i>
               </div>

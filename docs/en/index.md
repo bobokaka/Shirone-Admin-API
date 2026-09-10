@@ -17,24 +17,38 @@ hero:
       link: https://github.com/bobokaka/Shirone-Admin
 
 features:
+  - title: Dashboard & Live Preview
+    icon: '<i class="fa-solid fa-gauge-high"></i>'
+    details: Pending changes and content stats at a glance, with an embedded live preview of your real blog
+    link: /en/guide/dashboard
   - title: Article Editing
-    icon: '<i class="fa-solid fa-file-pen"></i>'
-    details: Markdown source-mode editor with built-in Shirone theme snippets (triple-colon containers, file-tree, code tabs and more), images managed alongside the text
+    icon: '<i class="fa-solid fa-pen-nib"></i>'
+    details: Markdown source-mode editor with built-in theme snippets (triple-colon containers, file-tree, code tabs…), images managed alongside the text
+    link: /en/guide/post-editor
   - title: Moments
-    icon: '<i class="fa-solid fa-comment-dots"></i>'
-    details: Publish short updates in seconds, with images automatically archived into the theme's thumbnail pipeline
+    icon: '<i class="fa-solid fa-messages"></i>'
+    details: Mood, location, tags and a nine-photo grid, with images archived into the theme's thumbnail pipeline automatically
+    link: /en/guide/moments
+  - title: Site Settings
+    icon: '<i class="fa-solid fa-palette"></i>'
+    details: Site profile, navigation, footer, theme appearance and banner wallpapers — all edited visually
+    link: /en/guide/settings
   - title: Structured Data
-    icon: '<i class="fa-solid fa-table-list"></i>'
-    details: Visual editing for projects, skills, timeline, devices, anime, navigation and other data/*.ts entries
+    icon: '<i class="fa-solid fa-diagram-project"></i>'
+    details: Visual editing for projects, skills, timeline, devices, anime, compass, playlists and links in data/*.ts, with search-based import
+    link: /en/guide/data
   - title: AI Assistant
-    icon: '<i class="fa-solid fa-robot"></i>'
-    details: Switch between multiple providers — rewrite imported content, generate commit messages, draft timelines
+    icon: '<i class="fa-solid fa-wand-magic-sparkles"></i>'
+    details: Switch between providers to rewrite content, generate commit messages and draft timelines — AI entries on every page
+    link: /en/guide/ai
   - title: Content Import
-    icon: '<i class="fa-solid fa-file-import"></i>'
-    details: One-stop import for Jianshu archives, anime (Bangumi API) and music
+    icon: '<i class="fa-solid fa-cloud-arrow-down"></i>'
+    details: Bulk-migrate Jianshu archives, paste a single post for instant conversion, import anime and music in one place
+    link: /en/guide/import
   - title: One-click Publishing
-    icon: '<i class="fa-solid fa-rocket"></i>'
+    icon: '<i class="fa-solid fa-rocket-launch"></i>'
     details: Git commit and push to both repositories, with automatic theme validation before release
+    link: /en/guide/publish
 
 highlights:
   - header: Why Shirone-Admin
@@ -43,16 +57,16 @@ highlights:
     bgImageDark: /assets/image/home/bg/1-dark.svg
     features:
       - title: Local First
-        icon: fa-house-laptop
+        icon: fa-hard-drive
         details: All data lives in your own content repository — runs as a single desktop tool, no server deployment
       - title: Live Site Preview
-        icon: fa-eye
+        icon: fa-window-maximize
         details: Embedded astro dev from the theme repo — what you see is the real site you are about to publish
       - title: Three-repo Workflow
         icon: fa-cubes
         details: Plays its part alongside the Shirone theme repo and the Shirone-Content repo, with a clear trail of every change
       - title: Safe Publishing
-        icon: fa-shield-halved
+        icon: fa-clipboard-check
         details: Theme validation runs automatically before publishing and blocks the release on failure
 
   - header: Up and Running in Three Minutes

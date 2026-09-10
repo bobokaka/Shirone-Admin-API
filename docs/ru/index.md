@@ -17,24 +17,38 @@ hero:
       link: https://github.com/bobokaka/Shirone-Admin
 
 features:
+  - title: Дашборд и предпросмотр
+    icon: '<i class="fa-solid fa-gauge-high"></i>'
+    details: Незапущенные изменения и статистика контента одним взглядом, со встроенным предпросмотром настоящего блога
+    link: /ru/guide/dashboard
   - title: Редактирование статей
-    icon: '<i class="fa-solid fa-file-pen"></i>'
+    icon: '<i class="fa-solid fa-pen-nib"></i>'
     details: Редактор Markdown в режиме исходного кода со встроенными сниппетами темы Shirone (контейнеры из трёх двоеточий, file-tree, вкладки кода и др.), изображения управляются вместе с текстом
+    link: /ru/guide/post-editor
   - title: Моменты
-    icon: '<i class="fa-solid fa-comment-dots"></i>'
-    details: Публикация и управление короткими записями, изображения автоматически попадают в каталог конвейера миниатюр темы
+    icon: '<i class="fa-solid fa-messages"></i>'
+    details: Настроение, место, теги и сетка из девяти фото; изображения автоматически попадают в конвейер миниатюр темы
+    link: /ru/guide/moments
+  - title: Настройки сайта
+    icon: '<i class="fa-solid fa-palette"></i>'
+    details: Основная информация, навигация, подвал, внешний вид темы и обои баннера — всё редактируется визуально
+    link: /ru/guide/settings
   - title: Структурированные данные
-    icon: '<i class="fa-solid fa-table-list"></i>'
-    details: Визуальное редактирование проектов, навыков, таймлайна, устройств, аниме, навигации и остальных data/*.ts
+    icon: '<i class="fa-solid fa-diagram-project"></i>'
+    details: Проекты, навыки, таймлайн, устройства, аниме, компас, плейлисты и ссылки из data/*.ts — визуальное редактирование и импорт через поиск
+    link: /ru/guide/data
   - title: ИИ-ассистент
-    icon: '<i class="fa-solid fa-robot"></i>'
-    details: Переключение между несколькими провайдерами — переписывание импортированного, генерация сообщений коммитов, черновики таймлайна
-  - title: Импорт контента
-    icon: '<i class="fa-solid fa-file-import"></i>'
-    details: Импорт в одном месте — экспорты Jianshu, аниме (Bangumi API) и музыка
+    icon: '<i class="fa-solid fa-wand-magic-sparkles"></i>'
+    details: Переключайтесь между провайдерами — переписывание контента, генерация сообщений коммитов и черновики таймлайна доступны на каждой странице
+    link: /ru/guide/ai
+  - title: Импорт с платформ
+    icon: '<i class="fa-solid fa-cloud-arrow-down"></i>'
+    details: Массовая миграция экспортов Цзяньшу, мгновенное преобразование вставленной статьи, импорт аниме и музыки в одном месте
+    link: /ru/guide/import
   - title: Публикация в один клик
-    icon: '<i class="fa-solid fa-rocket"></i>'
+    icon: '<i class="fa-solid fa-rocket-launch"></i>'
     details: Коммит и push в оба репозитория с автоматической проверкой темы перед релизом
+    link: /ru/guide/publish
 
 highlights:
   - header: Почему Shirone-Admin
@@ -43,16 +57,16 @@ highlights:
     bgImageDark: /assets/image/home/bg/1-dark.svg
     features:
       - title: Локальность прежде всего
-        icon: fa-house-laptop
+        icon: fa-hard-drive
         details: Все данные хранятся в вашем собственном контент-репозитории — локальный инструмент без развёртывания сервера
       - title: Предпросмотр реального сайта
-        icon: fa-eye
+        icon: fa-window-maximize
         details: Встроенный astro dev из репозитория темы — вы видите тот самый сайт, который скоро опубликуете
       - title: Работа трёх репозиториев
         icon: fa-cubes
         details: Действует сообща с репозиторием темы Shirone и репозиторием Shirone-Content, каждое изменение отслеживается
       - title: Безопасная публикация
-        icon: fa-shield-halved
+        icon: fa-clipboard-check
         details: Проверка темы запускается автоматически перед публикацией и блокирует релиз при ошибке
 
   - header: Запуск за три минуты
