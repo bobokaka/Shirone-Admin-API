@@ -5,7 +5,7 @@ type LocaleConfig = LocaleSpecificConfig & { label: string };
 export const zhHant: LocaleConfig = {
   lang: "zh-Hant",
   label: "繁體中文",
-  title: "Shirone-Admin",
+  title: "Shirone Admin 文件",
   description: "Shirone 部落格視覺化內容管理工具 Shirone-Admin 的官方文件——安裝、使用、設定與 API 參考",
   themeConfig: {
     nav: [
@@ -30,7 +30,7 @@ export const zhHant: LocaleConfig = {
     </div>
     <div style="margin-right:8px;display:inline-block;margin-bottom:4px">
       <div style="display:flex;align-items:center;justify-content:center">
-        <img style="width:18px;height:18px;margin-right:12px" src="/assets/image/home/police-icon.png"/>
+        <img style="width:18px;height:18px;margin-right:12px" src="/shironeadmin/assets/image/home/police-icon.png"/>
         <a style="height:auto" href="https://beian.mps.gov.cn/#/query/webSearch?code=43010402002123" rel="noreferrer" target="_blank">湘公网安备43010402002123号</a>
       </div>
     </div>

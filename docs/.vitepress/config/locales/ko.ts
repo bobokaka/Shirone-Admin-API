@@ -5,7 +5,7 @@ type LocaleConfig = LocaleSpecificConfig & { label: string };
 export const ko: LocaleConfig = {
   lang: "ko-KR",
   label: "한국어",
-  title: "Shirone-Admin",
+  title: "Shirone Admin Docs",
   description: "Shirone 블로그용 시각화 콘텐츠 관리 도구 Shirone-Admin 공식 문서 — 설치, 사용법, 설정 및 API 참조",
   themeConfig: {
     nav: [
@@ -30,7 +30,7 @@ export const ko: LocaleConfig = {
     </div>
     <div style="margin-right:8px;display:inline-block;margin-bottom:4px">
       <div style="display:flex;align-items:center;justify-content:center">
-        <img style="width:18px;height:18px;margin-right:12px" src="/assets/image/home/police-icon.png"/>
+        <img style="width:18px;height:18px;margin-right:12px" src="/shironeadmin/assets/image/home/police-icon.png"/>
         <a style="height:auto" href="https://beian.mps.gov.cn/#/query/webSearch?code=43010402002123" rel="noreferrer" target="_blank">湘公网安备43010402002123号</a>
       </div>
     </div>

@@ -1385,11 +1385,6 @@
    EXISTING PRESERVED STYLES
    ============================================ */
 
-/* Homepage: hide default VitePress footer */
-.home .VPFooter {
-  display: none !important;
-}
-
 /* Code group active tab */
 .vp-code-group .tabs {
   border-radius: 0;

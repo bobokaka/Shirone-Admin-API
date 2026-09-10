@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch, nextTick, onMounted, onBeforeUnmount } from "vue";
-import { useData } from "vitepress";
+import { useData, withBase } from "vitepress";
 // 直接导入 VitePress 内置组件，保留其 scoped 样式
 import VPHero from "vitepress/dist/client/theme-default/components/VPHero.vue";
 import VPFeatures from "vitepress/dist/client/theme-default/components/VPFeatures.vue";
@@ -144,10 +144,10 @@ onBeforeUnmount(() => {
         :style="[
           section.bgImage
             ? {
-                '--eco-section-bg-light': `url(${section.bgImage})`,
+                '--eco-section-bg-light': `url(${withBase(section.bgImage)})`,
                 '--eco-section-bg-dark': section.bgImageDark
-                  ? `url(${section.bgImageDark})`
-                  : `url(${section.bgImage})`,
+                  ? `url(${withBase(section.bgImageDark)})`
+                  : `url(${withBase(section.bgImage)})`,
               }
             : {},
         ]"
@@ -155,7 +155,7 @@ onBeforeUnmount(() => {
         <div class="eco-section__container">
           <div class="eco-section__header">
             <div v-if="section.image" class="eco-section__icon">
-              <img :src="section.image" :alt="section.header" loading="lazy" />
+              <img :src="withBase(section.image)" :alt="section.header" loading="lazy" />
             </div>
             <h2 class="eco-section__title">{{ section.header }}</h2>
             <div class="eco-section__title-line"></div>

@@ -5,7 +5,7 @@ type LocaleConfig = LocaleSpecificConfig & { label: string };
 export const de: LocaleConfig = {
   lang: "de-DE",
   label: "Deutsch",
-  title: "Shirone-Admin",
+  title: "Shirone Admin Docs",
   description: "Offizielle Dokumentation von Shirone-Admin — dem visuellen Content-Management-Tool für den Shirone-Blog. Installation, Nutzung, Konfiguration und API-Referenz.",
   themeConfig: {
     nav: [
@@ -30,7 +30,7 @@ export const de: LocaleConfig = {
     </div>
     <div style="margin-right:8px;display:inline-block;margin-bottom:4px">
       <div style="display:flex;align-items:center;justify-content:center">
-        <img style="width:18px;height:18px;margin-right:12px" src="/assets/image/home/police-icon.png"/>
+        <img style="width:18px;height:18px;margin-right:12px" src="/shironeadmin/assets/image/home/police-icon.png"/>
         <a style="height:auto" href="https://beian.mps.gov.cn/#/query/webSearch?code=43010402002123" rel="noreferrer" target="_blank">湘公网安备43010402002123号</a>
       </div>
     </div>
