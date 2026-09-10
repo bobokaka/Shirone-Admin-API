@@ -26,7 +26,7 @@ features:
     details: Markdown source-mode editor with built-in theme snippets (triple-colon containers, file-tree, code tabs…), images managed alongside the text
     link: /en/guide/post-editor
   - title: Moments
-    icon: '<i class="fa-solid fa-messages"></i>'
+    icon: '<i class="fa-solid fa-comments"></i>'
     details: Mood, location, tags and a nine-photo grid, with images archived into the theme's thumbnail pipeline automatically
     link: /en/guide/moments
   - title: Site Settings
@@ -46,7 +46,7 @@ features:
     details: Bulk-migrate Jianshu archives, paste a single post for instant conversion, import anime and music in one place
     link: /en/guide/import
   - title: One-click Publishing
-    icon: '<i class="fa-solid fa-rocket-launch"></i>'
+    icon: '<i class="fa-solid fa-rocket"></i>'
     details: Git commit and push to both repositories, with automatic theme validation before release
     link: /en/guide/publish
 
@@ -56,18 +56,18 @@ highlights:
     bgImage: /assets/image/home/bg/1-light.svg
     bgImageDark: /assets/image/home/bg/1-dark.svg
     features:
-      - title: Local First
-        icon: fa-hard-drive
-        details: All data lives in your own content repository — runs as a single desktop tool, no server deployment
-      - title: Live Site Preview
-        icon: fa-window-maximize
-        details: Embedded astro dev from the theme repo — what you see is the real site you are about to publish
-      - title: Three-repo Workflow
+      - title: Traceable History
+        icon: fa-clock-rotate-left
+        details: Every publish maps to a git commit — see exactly what changed and when, and roll back at any time
+      - title: Three Repos, Clear Boundaries
         icon: fa-cubes
-        details: Plays its part alongside the Shirone theme repo and the Shirone-Content repo, with a clear trail of every change
-      - title: Safe Publishing
-        icon: fa-clipboard-check
-        details: Theme validation runs automatically before publishing and blocks the release on failure
+        details: The tool, the theme and the content live in separate repositories — upgrades never conflict, and switching themes never costs you content
+      - title: You Own Your Data
+        icon: fa-user-shield
+        details: Posts, configuration and media always stay in your own repositories — the tool is just a console you can leave with all your data anytime
+      - title: Zero Maintenance
+        icon: fa-house-laptop
+        details: No server, no database, nothing to operate — one computer is the entire infrastructure
 
   - header: Up and Running in Three Minutes
     image: /assets/image/home/box.svg

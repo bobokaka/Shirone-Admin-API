@@ -124,7 +124,7 @@ Shirone-Admin-API/
 
 ### 5. 自动部署（GitHub Actions）
 
-推送到 `master` 自动触发 `.github/workflows/deploy.yml`：构建（堆上限 16GB，runner 16GB 内存 + 16GB swap 兜底）后 rsync 镜像 `docs/.vitepress/dist/` 到宝塔服务器 `/www/wwwroot/shironeadmin.evocosmos.com/public/shironeadmin`。所需 Secrets（Settings -> Secrets and variables -> Actions）：`DEPLOY_HOST` / `DEPLOY_USER` / `DEPLOY_SSH_KEY` / `DEPLOY_DIR`，可选 `DEPLOY_PORT`（默认 22）。Secrets 未配置时 workflow 会在构建前快速失败并提示。
+推送到 `master` 自动触发 `.github/workflows/deploy.yml`：构建（堆上限 16GB，runner 16GB 内存 + 16GB swap 兜底）后 rsync 镜像 `docs/.vitepress/dist/` 到宝塔服务器 `/www/wwwroot/shironeadmin.evocosmos.com/pubilc/shironeadmin`（服务器目录名即为 `pubilc`，nginx vhost root 同指向此处，站点按域名根 `https://shironeadmin.evocosmos.com/` 服务，base 为 `/`）。所需 Secrets（Settings -> Secrets and variables -> Actions）：`DEPLOY_HOST` / `DEPLOY_USER` / `DEPLOY_SSH_KEY` / `DEPLOY_DIR`，可选 `DEPLOY_PORT`（默认 22）。Secrets 未配置时 workflow 会在构建前快速失败并提示。
 
 ## Mermaid 图表点击跳转规范
 

@@ -4,7 +4,7 @@ import fs from "node:fs";
 import { withMermaid } from "vitepress-plugin-mermaid";
 import { giscusPlugin } from "vitepress-plugin-giscus";
 import { RssPlugin } from "vitepress-plugin-rss";
-import { head, sharedConfig, hostname, siteBase } from "./shared.js";
+import { head, sharedConfig, hostname } from "./shared.js";
 import { sidebar } from "./sidebar-generated.js";
 import { zh } from "./locales/zh.js";
 import { en } from "./locales/en.js";
@@ -71,9 +71,7 @@ function publicAssetsPlugin() {
         const ext = path.extname(url).toLowerCase();
         if (!ext || !mimeTypes[ext]) return next();
 
-        // 剥离 base 前缀后再映射 public 目录
-        const relPath = url.startsWith(siteBase) ? url.slice(siteBase.length - 1) : url;
-        const filePath = path.join(publicDir, relPath);
+        const filePath = path.join(publicDir, url);
         if (!fs.existsSync(filePath)) return next();
 
         const stat = fs.statSync(filePath);

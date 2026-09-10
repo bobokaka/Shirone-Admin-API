@@ -26,7 +26,7 @@ features:
     details: Markdown-Editor im Quelltextmodus mit eingebauten Theme-Snippets (Dreifach-Doppelpunkt-Container, file-tree, Code-Tabs u. a.), Bilder werden direkt im Text verwaltet
     link: /de/guide/post-editor
   - title: Momente
-    icon: '<i class="fa-solid fa-messages"></i>'
+    icon: '<i class="fa-solid fa-comments"></i>'
     details: Stimmung, Ort, Tags und Raster mit bis zu neun Fotos — Bilder landen automatisch in der Thumbnail-Pipeline des Themes
     link: /de/guide/moments
   - title: Website-Einstellungen
@@ -46,7 +46,7 @@ features:
     details: Jianshu-Exporte im Stapel migrieren, einzelne Artikel direkt beim Einfügen konvertieren, Anime und Musik an einem Ort importieren
     link: /de/guide/import
   - title: Veröffentlichung mit einem Klick
-    icon: '<i class="fa-solid fa-rocket-launch"></i>'
+    icon: '<i class="fa-solid fa-rocket"></i>'
     details: Git-Commit und Push in beide Repositories, mit automatischer Theme-Validierung vor der Veröffentlichung
     link: /de/guide/publish
 
@@ -56,18 +56,18 @@ highlights:
     bgImage: /assets/image/home/bg/1-light.svg
     bgImageDark: /assets/image/home/bg/1-dark.svg
     features:
-      - title: Lokal zuerst
-        icon: fa-hard-drive
-        details: Alle Daten bleiben in deinem eigenen Content-Repository — ein lokales Tool ganz ohne Server
-      - title: Live-Vorschau
-        icon: fa-window-maximize
-        details: astro dev des Theme-Repos eingebettet — was du siehst, ist die echte Seite, die gleich online geht
-      - title: Drei-Repos-Workflow
+      - title: Nachvollziehbare Historie
+        icon: fa-clock-rotate-left
+        details: Jede Veröffentlichung ist ein git-Commit — sieh jederzeit, was sich wann geändert hat, und rolle bei Bedarf zurück
+      - title: Drei Repos, klare Grenzen
         icon: fa-cubes
-        details: Arbeitet Hand in Hand mit dem Shirone-Theme-Repo und dem Shirone-Content-Repo, jede Änderung ist nachvollziehbar
-      - title: Sichere Veröffentlichung
-        icon: fa-clipboard-check
-        details: Die Theme-Validierung läuft vor jeder Veröffentlichung automatisch und blockiert sie bei Fehlern
+        details: Werkzeug, Theme und Inhalt leben in getrennten Repos — Upgrades beißen sich nicht, und ein Theme-Wechsel kostet keinen Inhalt
+      - title: Deine Daten gehören dir
+        icon: fa-user-shield
+        details: Beiträge, Konfiguration und Medien bleiben in deinen eigenen Repos — das Tool ist nur eine Konsole, die du jederzeit mit allen Daten verlassen kannst
+      - title: Kein Betrieb nötig
+        icon: fa-house-laptop
+        details: Kein Server, keine Datenbank, keine Wartung — ein einziger Rechner ist die komplette Infrastruktur
 
   - header: In drei Minuten startklar
     image: /assets/image/home/box.svg

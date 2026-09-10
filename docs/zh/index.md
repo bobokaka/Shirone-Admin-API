@@ -26,7 +26,7 @@ features:
     details: Markdown 源码编辑器，内置三冒号容器、file-tree 等主题扩展片段，配图随文管理
     link: /zh/guide/post-editor
   - title: 说说动态
-    icon: '<i class="fa-solid fa-messages"></i>'
+    icon: '<i class="fa-solid fa-comments"></i>'
     details: 心情、地点、标签与九宫格配图，图片自动归档到主题缩略图管线
     link: /zh/guide/moments
   - title: 站点设置
@@ -46,7 +46,7 @@ features:
     details: 简书导出包整批迁移、单篇粘贴即贴即转，番剧与音乐一站式导入
     link: /zh/guide/import
   - title: 一键发布
-    icon: '<i class="fa-solid fa-rocket-launch"></i>'
+    icon: '<i class="fa-solid fa-rocket"></i>'
     details: 双仓 git 提交与推送，发布前自动执行主题校验，失败即阻断
     link: /zh/guide/publish
 
@@ -56,18 +56,18 @@ highlights:
     bgImage: /assets/image/home/bg/1-light.svg
     bgImageDark: /assets/image/home/bg/1-dark.svg
     features:
-      - title: 本地优先
-        icon: fa-hard-drive
-        details: 数据全部保存在你自己的内容仓，单机运行，无需部署服务端
-      - title: 真站预览
-        icon: fa-window-maximize
-        details: 内嵌主题仓 astro dev 实时预览，所见即即将发布的真实站点
-      - title: 三仓协作
+      - title: 数据可追溯
+        icon: fa-clock-rotate-left
+        details: 每次发布对应一条 git 提交，何时改了什么一目了然，出问题随时回滚
+      - title: 三仓各司其职
         icon: fa-cubes
-        details: 与 Shirone 主题仓、Shirone-Content 内容仓各司其职，改动来源清晰可追溯
-      - title: 安全发布
-        icon: fa-clipboard-check
-        details: 发布前自动执行主题校验，失败即阻断，杜绝坏内容上线
+        details: 管理工具、主题、内容三个仓库边界清晰，升级互不干扰，换主题不丢内容
+      - title: 数据主权在你
+        icon: fa-user-shield
+        details: 文章、配置与媒体始终保存在你自己的仓库里，工具只是操作台，随时可带着全部数据迁移
+      - title: 零运维成本
+        icon: fa-house-laptop
+        details: 无需服务器、数据库与日常运维，一台电脑就是全部基础设施
 
   - header: 三分钟启动
     image: /assets/image/home/box.svg

@@ -26,7 +26,7 @@ features:
     details: Éditeur Markdown en mode source avec extraits du thème (conteneurs triple-deux-points, file-tree, onglets de code…), images gérées avec le texte
     link: /fr/guide/post-editor
   - title: Moments
-    icon: '<i class="fa-solid fa-messages"></i>'
+    icon: '<i class="fa-solid fa-comments"></i>'
     details: Humeur, lieu, tags et grille de neuf photos — images archivées automatiquement dans le pipeline de miniatures du thème
     link: /fr/guide/moments
   - title: Réglages du site
@@ -46,7 +46,7 @@ features:
     details: Migration par lots des archives Jianshu, conversion instantanée au collage d'un article, import d'animes et de musique en un seul endroit
     link: /fr/guide/import
   - title: Publication en un clic
-    icon: '<i class="fa-solid fa-rocket-launch"></i>'
+    icon: '<i class="fa-solid fa-rocket"></i>'
     details: Commit et push git vers les deux dépôts, validation automatique du thème avant publication
     link: /fr/guide/publish
 
@@ -56,18 +56,18 @@ highlights:
     bgImage: /assets/image/home/bg/1-light.svg
     bgImageDark: /assets/image/home/bg/1-dark.svg
     features:
-      - title: Local d'abord
-        icon: fa-hard-drive
-        details: Toutes vos données restent dans votre propre dépôt de contenu — un outil local, sans serveur à déployer
-      - title: Aperçu du site réel
-        icon: fa-window-maximize
-        details: astro dev du dépôt du thème intégré — ce que vous voyez est le vrai site que vous allez publier
-      - title: Workflow à trois dépôts
+      - title: Historique traçable
+        icon: fa-clock-rotate-left
+        details: Chaque publication correspond à un commit git — sachez ce qui a changé et quand, et revenez en arrière à tout moment
+      - title: Trois dépôts, rôles distincts
         icon: fa-cubes
-        details: Collabore avec le dépôt du thème Shirone et le dépôt Shirone-Content, chaque modification est traçable
-      - title: Publication sécurisée
-        icon: fa-clipboard-check
-        details: La validation du thème s'exécute automatiquement avant publication et bloque la sortie en cas d'échec
+        details: L'outil, le thème et le contenu vivent dans des dépôts séparés — les mises à jour ne se contrarient pas et changer de thème ne coûte aucun contenu
+      - title: Vos données vous appartiennent
+        icon: fa-user-shield
+        details: Articles, configuration et médias restent dans vos propres dépôts — l'outil n'est qu'une console que vous pouvez quitter avec toutes vos données
+      - title: Zéro maintenance
+        icon: fa-house-laptop
+        details: Pas de serveur, pas de base de données, rien à administrer — un seul ordinateur constitue toute l'infrastructure
 
   - header: Opérationnel en trois minutes
     image: /assets/image/home/box.svg

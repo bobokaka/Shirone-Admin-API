@@ -8,7 +8,8 @@
 #
 # 所需 Secrets（Settings -> Secrets and variables -> Actions）：
 #   DEPLOY_HOST / DEPLOY_USER / DEPLOY_SSH_KEY —— 服务器 SSH 凭据（专用部署公钥）
-#   DEPLOY_DIR —— 站点子路径目录，如 /www/wwwroot/shironeadmin.evocosmos.com/public/shironeadmin
+#   DEPLOY_DIR —— 站点根目录，/www/wwwroot/shironeadmin.evocosmos.com/pubilc/shironeadmin
+#                （服务器目录名即为 pubilc，非 public；nginx vhost root 同指向此处）
 #   DEPLOY_PORT —— 可选，默认 22
 
 name: Deploy

@@ -26,7 +26,7 @@ features:
     details: Editor Markdown en modo fuente con fragmentos propios del tema Shirone (contenedores de triple dos puntos, file-tree, pestañas de código, etc.), imágenes gestionadas junto al texto
     link: /es/guide/post-editor
   - title: Momentos
-    icon: '<i class="fa-solid fa-messages"></i>'
+    icon: '<i class="fa-solid fa-comments"></i>'
     details: Ánimo, ubicación, etiquetas y cuadrícula de nueve fotos, con imágenes archivadas automáticamente en el pipeline de miniaturas del tema
     link: /es/guide/moments
   - title: Ajustes del sitio
@@ -46,7 +46,7 @@ features:
     details: Migra por lotes exportaciones de Jianshu, convierte al instante artículos pegados, importa animes y música en un solo lugar
     link: /es/guide/import
   - title: Publicación con un clic
-    icon: '<i class="fa-solid fa-rocket-launch"></i>'
+    icon: '<i class="fa-solid fa-rocket"></i>'
     details: Commit y push de git a ambos repositorios, con validación automática del tema antes de publicar
     link: /es/guide/publish
 
@@ -56,18 +56,18 @@ highlights:
     bgImage: /assets/image/home/bg/1-light.svg
     bgImageDark: /assets/image/home/bg/1-dark.svg
     features:
-      - title: Primero local
-        icon: fa-hard-drive
-        details: Todos los datos viven en tu propio repositorio de contenido — una herramienta local, sin servidores que desplegar
-      - title: Vista previa del sitio real
-        icon: fa-window-maximize
-        details: astro dev del repositorio del tema integrado — lo que ves es el sitio real que estás a punto de publicar
-      - title: Flujo de tres repositorios
+      - title: Historial rastreable
+        icon: fa-clock-rotate-left
+        details: Cada publicación equivale a un commit de git — qué cambió y cuándo queda a la vista, y puedes revertir en cualquier momento
+      - title: Tres repositorios, papeles claros
         icon: fa-cubes
-        details: Colabora con el repositorio del tema Shirone y el de Shirone-Content, con trazabilidad clara de cada cambio
-      - title: Publicación segura
-        icon: fa-clipboard-check
-        details: La validación del tema se ejecuta automáticamente antes de publicar y bloquea la salida si falla
+        details: Herramienta, tema y contenido viven en repositorios separados — las actualizaciones no chocan y cambiar de tema no cuesta contenido
+      - title: Tus datos son tuyos
+        icon: fa-user-shield
+        details: Artículos, configuración y medios permanecen en tus propios repositorios — la herramienta es solo una consola de la que puedes llevártelo todo cuando quieras
+      - title: Cero mantenimiento
+        icon: fa-house-laptop
+        details: Sin servidor, sin base de datos, nada que administrar — un solo ordenador es toda la infraestructura
 
   - header: Listo en tres minutos
     image: /assets/image/home/box.svg

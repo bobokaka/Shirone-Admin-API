@@ -26,7 +26,7 @@ features:
     details: Markdown ソースモードエディター。三重コロンコンテナ、file-tree などテーマ拡張スニペットを内蔵し、画像も本文と一緒に管理
     link: /ja/guide/post-editor
   - title: モーメンツ
-    icon: '<i class="fa-solid fa-messages"></i>'
+    icon: '<i class="fa-solid fa-comments"></i>'
     details: 気分、場所、タグ、9 枚のグリッド写真。画像はテーマのサムネイルパイプラインへ自動アーカイブ
     link: /ja/guide/moments
   - title: サイト設定
@@ -46,7 +46,7 @@ features:
     details: 簡書エクスポートの一括移行、単票の貼り付けで即時変換、アニメと音楽をワンストップで取り込み
     link: /ja/guide/import
   - title: ワンクリック公開
-    icon: '<i class="fa-solid fa-rocket-launch"></i>'
+    icon: '<i class="fa-solid fa-rocket"></i>'
     details: 2 リポジトリへの git コミットとプッシュ。公開前にテーマ検証を自動実行し、失敗すればブロック
     link: /ja/guide/publish
 
@@ -56,18 +56,18 @@ highlights:
     bgImage: /assets/image/home/bg/1-light.svg
     bgImageDark: /assets/image/home/bg/1-dark.svg
     features:
-      - title: ローカルファースト
-        icon: fa-hard-drive
-        details: データはすべて自分のコンテンツリポジトリに保存。サーバー展開不要の単体ツール
-      - title: 実サイトプレビュー
-        icon: fa-window-maximize
-        details: テーマリポジトリの astro dev を内蔵。表示されるのはまさに公開される本物のサイト
-      - title: 3 リポジトリ連携
+      - title: 追跡可能な履歴
+        icon: fa-clock-rotate-left
+        details: 公開のたびに git コミットが残る。いつ何を変えたか一目で確認でき、問題があればいつでもロールバック
+      - title: 3 リポジトリの役割分担
         icon: fa-cubes
-        details: Shirone テーマリポジトリ、Shirone-Content コンテンツリポジトリと役割分担し、変更の由来を明確に追跡
-      - title: 安全な公開
-        icon: fa-clipboard-check
-        details: 公開前にテーマ検証を自動実行し、失敗すれば公開をブロック
+        details: ツール・テーマ・コンテンツが別々のリポジトリで明確に分離。アップグレードは干渉せず、テーマを変えてもコンテンツは失われない
+      - title: データの主権はあなたに
+        icon: fa-user-shield
+        details: 記事・設定・メディアは常に自分のリポジトリに保存。ツールは操作盤にすぎず、全データを持っていつでも移行できる
+      - title: 運用不要
+        icon: fa-house-laptop
+        details: サーバーもデータベースも日常運用も不要。一台の PC がインフラのすべて
 
   - header: 3 分で起動
     image: /assets/image/home/box.svg

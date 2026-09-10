@@ -26,7 +26,7 @@ features:
     details: Markdown 原始碼編輯器，內建三冒號容器、file-tree 等主題擴充片段，配圖隨文管理
     link: /zh-hant/guide/post-editor
   - title: 說說動態
-    icon: '<i class="fa-solid fa-messages"></i>'
+    icon: '<i class="fa-solid fa-comments"></i>'
     details: 心情、地點、標籤與九宮格配圖，圖片自動歸檔到主題縮圖管線
     link: /zh-hant/guide/moments
   - title: 站點設定
@@ -46,7 +46,7 @@ features:
     details: 簡書匯出包整批遷移、單篇貼上即貼即轉，番劇與音樂一站式匯入
     link: /zh-hant/guide/import
   - title: 一鍵發布
-    icon: '<i class="fa-solid fa-rocket-launch"></i>'
+    icon: '<i class="fa-solid fa-rocket"></i>'
     details: 雙倉 git 提交與推送，發布前自動執行主題校驗，失敗即阻斷
     link: /zh-hant/guide/publish
 
@@ -56,18 +56,18 @@ highlights:
     bgImage: /assets/image/home/bg/1-light.svg
     bgImageDark: /assets/image/home/bg/1-dark.svg
     features:
-      - title: 本地優先
-        icon: fa-hard-drive
-        details: 資料全部保存在你自己的內容倉，單機運行，無需部署伺服端
-      - title: 真站預覽
-        icon: fa-window-maximize
-        details: 內嵌主題倉 astro dev 即時預覽，所見即即將發布的真實站點
-      - title: 三倉協作
+      - title: 數據可追溯
+        icon: fa-clock-rotate-left
+        details: 每次發布對應一條 git 提交，何時改了什麼一目瞭然，出問題隨時回滾
+      - title: 三倉各司其職
         icon: fa-cubes
-        details: 與 Shirone 主題倉、Shirone-Content 內容倉各司其職，改動來源清晰可追溯
-      - title: 安全發布
-        icon: fa-clipboard-check
-        details: 發布前自動執行主題校驗，失敗即阻斷，杜絕壞內容上線
+        details: 管理工具、主題、內容三個倉庫邊界清晰，升級互不干擾，換主題不丟內容
+      - title: 數據主權在你
+        icon: fa-user-shield
+        details: 文章、設定與媒體始終保存在你自己的倉庫裡，工具只是操作台，隨時可帶著全部數據遷移
+      - title: 零運維成本
+        icon: fa-house-laptop
+        details: 無需伺服器、資料庫與日常運維，一台電腦就是全部基礎設施
 
   - header: 三分鐘啟動
     image: /assets/image/home/box.svg
