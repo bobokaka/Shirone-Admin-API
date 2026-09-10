@@ -10,6 +10,8 @@ export const ja: LocaleConfig = {
   themeConfig: {
     nav: [
       { text: "ホーム", link: "/ja/" },
+      { text: "ガイド", link: "/ja/guide/" },
+      { text: "API リファレンス", link: "/ja/api/" },
     ],
     sidebar: {} as any,
     outline: { label: "このページの目次", level: [2, 3] },

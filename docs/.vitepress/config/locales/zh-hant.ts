@@ -10,6 +10,8 @@ export const zhHant: LocaleConfig = {
   themeConfig: {
     nav: [
       { text: "首頁", link: "/zh-hant/" },
+      { text: "指南", link: "/zh-hant/guide/" },
+      { text: "API 參考", link: "/zh-hant/api/" },
     ],
     sidebar: {} as any,
     outline: { label: "本頁目錄", level: [2, 3] },

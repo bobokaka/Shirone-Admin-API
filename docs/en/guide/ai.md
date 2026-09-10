@@ -65,7 +65,7 @@ Once enabled, AI features appear in these locations (organized by page):
 |------|-------|------------|
 | [Post Editing](./post-editor.md#ai-assisted-writing) | Toolbar AI dropdown | Enhance content / format cleanup / polish (selection first) / continue / generate summary / custom instructions, with diff preview for whole-document rewrites |
 | [Moments](./moments.md#ai-assistance-optional) | Composer buttons | Body polish (streaming refill), tag and mood suggestions |
-| [Data Management](./data.md#field-level-ai-) | Edit dialog ✨ | Generate and rewrite description fields for projects/skills/anime etc. |
+| [Data Management](./data.md#field-level-ai) | Edit dialog ✨ | Generate and rewrite description fields for projects/skills/anime etc. |
 | [Data Management · Timeline](./data.md#timeline-ai-drafting) | AI Draft button | Summarize git history / draft events from a note; check and insert |
 | [Data Management · Playlist](./data.md#playlist-import-music) | Import Music | Search the web for tracks with license info attached |
 | [Site Settings](./settings.md#basic-info) | Input ✨ | One-shot generation of subtitle and bio |

@@ -72,4 +72,4 @@ A five-step wizard: **Choose method → Paste content → Content conversion →
 ## Next Steps
 
 - Review imported articles one by one in [Post Management](./posts.md) and clear the draft flag
-- For bulk category changes, use [Post Management · Category Management](./posts.md#category--tag-management)
+- For bulk category changes, use [Post Management · Category Management](./posts.md#category-tag-management)

@@ -10,6 +10,8 @@ export const en: LocaleConfig = {
   themeConfig: {
     nav: [
       { text: "Home", link: "/en/" },
+      { text: "Guide", link: "/en/guide/" },
+      { text: "API Reference", link: "/en/api/" },
     ],
     sidebar: {} as any,
     outline: { label: "On this page", level: [2, 3] },

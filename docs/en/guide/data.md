@@ -69,7 +69,7 @@ The timeline tab's "**AI Draft (“AI起草”)**" button (visible when AI is en
 
 The generated draft list supports **per-item checking**; already-recorded events are deduplicated automatically (matched by title + date). On confirmed insertion, each event is inserted at the correct position by date and persisted; the date format is auto-converted to the dot style the site uses (`2025.06.01`).
 
-## Field-Level AI ✨
+## Field-Level AI
 
 Long-text fields like descriptions (project description, skill description, anime description, friend description, timeline description, device description) have a **✨ button** in the top right of the edit dialog: once the entry's title is filled, one click has AI generate or rewrite the field in 1–3 sentences. The result streams directly into the input box—stoppable and manually editable.
 

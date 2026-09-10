@@ -17,7 +17,7 @@ description: /api/media/* 全部上传接口参考——文章配图、说说图
 | 头像 | `assets/images/avatar/` |
 | 页脚图片 | `public/images/footer/` |
 | favicon | `public/favicon/` |
-| 数据封面 | 按 kind 见[下表](#post-apimedia-data-cover) |
+| 数据封面 | 按 kind 见[下表](#post-api-media-data-cover) |
 | 歌曲音频 | `public/assets/music/url/` |
 
 ## POST /api/media/post-image

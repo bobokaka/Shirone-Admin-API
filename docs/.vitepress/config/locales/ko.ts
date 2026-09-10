@@ -10,6 +10,8 @@ export const ko: LocaleConfig = {
   themeConfig: {
     nav: [
       { text: "홈", link: "/ko/" },
+      { text: "가이드", link: "/ko/guide/" },
+      { text: "API 참조", link: "/ko/api/" },
     ],
     sidebar: {} as any,
     outline: { label: "이 페이지에서", level: [2, 3] },

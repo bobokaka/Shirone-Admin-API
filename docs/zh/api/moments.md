@@ -45,7 +45,7 @@ curl "http://127.0.0.1:5175/api/moments/detail?path=20260906-183000.md"
 
 ## POST /api/moments
 
-新建说说。**副作用**：写入 `content/moments/<发布时间戳>.md`；`images` 引用的文件应已通过[说说图上传](./media.md#post-apimedia-moment-image)落仓。
+新建说说。**副作用**：写入 `content/moments/<发布时间戳>.md`；`images` 引用的文件应已通过[说说图上传](./media.md#post-api-media-moment-image)落仓。
 
 | Body 字段 | 类型 | 必填 | 默认 | 说明 |
 |-----------|------|------|------|------|

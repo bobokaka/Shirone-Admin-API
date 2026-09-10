@@ -10,6 +10,8 @@ export const ru: LocaleConfig = {
   themeConfig: {
     nav: [
       { text: "Главная", link: "/ru/" },
+      { text: "Руководство", link: "/ru/guide/" },
+      { text: "Справочник API", link: "/ru/api/" },
     ],
     sidebar: {} as any,
     outline: { label: "На этой странице", level: [2, 3] },
